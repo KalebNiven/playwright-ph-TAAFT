@@ -1,0 +1,16 @@
+{
+  "name": "product-hunt",
+  "version": "1.0.0",
+  "main": "taaift_scraper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "playwright": "^1.58.2"
+  }
+}
