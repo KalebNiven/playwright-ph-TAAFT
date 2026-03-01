@@ -301,15 +301,41 @@ async function scrape() {
             // Actually, if we only have /posts/..., we can't easily resolve without parsing the post page.
             // But let's try to resolve whatever shortenedUrl we have.
             
-            let website = p.shortenedUrl ? `https://www.producthunt.com${p.shortenedUrl}` : "";
+            // Try to find the redirect URL from various possible properties
+            let redirectUrl = p.shortenedUrl || p.url || "";
+            if (!redirectUrl.startsWith("/r/p/") && p.website && p.website.includes("/r/p/")) {
+                redirectUrl = p.website;
+            }
+
+            let website = "";
             
-            if (p.shortenedUrl && p.shortenedUrl.startsWith("/r/p/")) {
+            // If we have a direct website that is NOT a redirect, use it
+            if (p.website && !p.website.includes("producthunt.com/r/p/") && p.website.startsWith("http")) {
+                 website = p.website;
+                 process.stdout.write(`.`); // . for Skipping/Already resolved
+            } 
+            // If we have a redirect URL, resolve it
+            else if (redirectUrl && redirectUrl.includes("/r/p/")) {
+                // Ensure it starts with / (relative) or http (absolute)
+                if (!redirectUrl.startsWith("http") && !redirectUrl.startsWith("/")) {
+                    redirectUrl = "/" + redirectUrl;
+                }
+                
+                // Extract just the path if it's a full URL
+                let shortPath = redirectUrl;
+                if (redirectUrl.startsWith("http")) {
+                    try {
+                        const u = new URL(redirectUrl);
+                        shortPath = u.pathname + u.search;
+                    } catch (e) {}
+                }
+
                 process.stdout.write(`R`); // R for Resolving
-                website = await resolveRedirectWithPage(pageInstance, p.shortenedUrl);
+                website = await resolveRedirectWithPage(pageInstance, shortPath);
             } else {
-                process.stdout.write(`.`); // . for Skipping/Already resolved
-                // If it's not a redirect link, check if we have 'website' in data?
-                if (p.website) website = p.website;
+                // Fallback
+                process.stdout.write(`?`);
+                website = p.website || `https://www.producthunt.com/posts/${p.slug || p.id}`;
             }
 
             resolvedProducts[index] = {
