@@ -1,0 +1,3485 @@
+[
+  {
+    "url": "https://www.producthunt.com/frontend/graphql?operationName=HeaderDesktopProductsNavigationQuery&variables=%7B%7D&extensions=%7B%22persistedQuery%22%3A%7B%22version%22%3A1%2C%22sha256Hash%22%3A%22a82e9e701482d3738ba0bc59691ce43a68fc39d25fee804d0c5da27ceb4aba4b%22%7D%7D",
+    "json": {
+      "data": {
+        "featuredCategories": [
+          {
+            "id": "1585",
+            "name": "Vibe Coding Tools",
+            "path": "/categories/vibe-coding",
+            "parent": {
+              "id": "72",
+              "name": "Engineering & Development",
+              "path": "/categories/engineering-development",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "88",
+            "name": "AI Coding Agents",
+            "path": "/categories/ai-coding-agents",
+            "parent": {
+              "id": "72",
+              "name": "Engineering & Development",
+              "path": "/categories/engineering-development",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "127",
+            "name": "AI Chatbots",
+            "path": "/categories/ai-chatbots",
+            "parent": {
+              "id": "126",
+              "name": "LLMs",
+              "path": "/categories/llms",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1156",
+            "name": "AI Infrastructure Tools",
+            "path": "/categories/ai-infrastructure",
+            "parent": {
+              "id": "126",
+              "name": "LLMs",
+              "path": "/categories/llms",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1288",
+            "name": "AI notetakers",
+            "path": "/categories/ai-meeting-notetakers",
+            "parent": {
+              "id": "34",
+              "name": "Productivity",
+              "path": "/categories/productivity",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "35",
+            "name": "Note and writing apps",
+            "path": "/categories/notes-documents",
+            "parent": {
+              "id": "34",
+              "name": "Productivity",
+              "path": "/categories/productivity",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "37",
+            "name": "Team collaboration software",
+            "path": "/categories/team-collaboration",
+            "parent": {
+              "id": "34",
+              "name": "Productivity",
+              "path": "/categories/productivity",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "98",
+            "name": "Lead generation software",
+            "path": "/categories/lead-generation",
+            "parent": {
+              "id": "89",
+              "name": "Marketing & Sales",
+              "path": "/categories/marketing-sales",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "97",
+            "name": "Marketing automation platforms",
+            "path": "/categories/marketing-automation",
+            "parent": {
+              "id": "89",
+              "name": "Marketing & Sales",
+              "path": "/categories/marketing-sales",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "57",
+            "name": "Video editing",
+            "path": "/categories/video-editing",
+            "parent": {
+              "id": "56",
+              "name": "Design & Creative",
+              "path": "/categories/design-creative",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "235",
+            "name": "Design resources",
+            "path": "/categories/design-resources",
+            "parent": {
+              "id": "56",
+              "name": "Design & Creative",
+              "path": "/categories/design-creative",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "234",
+            "name": "Graphic design tools",
+            "path": "/categories/graphic-design-tools",
+            "parent": {
+              "id": "56",
+              "name": "Design & Creative",
+              "path": "/categories/design-creative",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "105",
+            "name": "Social Networking",
+            "path": "/categories/social-networking",
+            "parent": {
+              "id": "104",
+              "name": "Social & Community",
+              "path": "/categories/social-community",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "116",
+            "name": "Professional networking platforms",
+            "path": "/categories/professional-networking",
+            "parent": {
+              "id": "104",
+              "name": "Social & Community",
+              "path": "/categories/social-community",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "123",
+            "name": "Community management",
+            "path": "/categories/community-management",
+            "parent": {
+              "id": "104",
+              "name": "Social & Community",
+              "path": "/categories/social-community",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "143",
+            "name": "Accounting software",
+            "path": "/categories/accounting",
+            "parent": {
+              "id": "141",
+              "name": "Finance",
+              "path": "/categories/finance",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "529",
+            "name": "Fundraising resources",
+            "path": "/categories/fundraising-resources",
+            "parent": {
+              "id": "141",
+              "name": "Finance",
+              "path": "/categories/finance",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "335",
+            "name": "Investing",
+            "path": "/categories/investing",
+            "parent": {
+              "id": "141",
+              "name": "Finance",
+              "path": "/categories/finance",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1190",
+            "name": "AI Voice Agents",
+            "path": "/categories/ai-voice-agents",
+            "parent": {
+              "id": "1791",
+              "name": "AI Agents",
+              "path": "/categories/ai-agents",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "430",
+            "name": "Search",
+            "path": "/categories/search",
+            "parent": {
+              "id": "34",
+              "name": "Productivity",
+              "path": "/categories/productivity",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "125",
+            "name": "AI Generative Media",
+            "path": "/categories/ai-generative-media",
+            "parent": {
+              "id": "56",
+              "name": "Design & Creative",
+              "path": "/categories/design-creative",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1717",
+            "name": "AI Code Editors",
+            "path": "/categories/ai-code-editors",
+            "parent": {
+              "id": "72",
+              "name": "Engineering & Development",
+              "path": "/categories/engineering-development",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1790",
+            "name": "AI Agent Automation",
+            "path": "/categories/ai-agent-automation",
+            "parent": {
+              "id": "1791",
+              "name": "AI Agents",
+              "path": "/categories/ai-agents",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1789",
+            "name": "Prompt Engineering Tools",
+            "path": "/categories/prompt-engineering-tools",
+            "parent": {
+              "id": "126",
+              "name": "LLMs",
+              "path": "/categories/llms",
+              "__typename": "ProductCategory"
+            },
+            "__typename": "ProductCategory"
+          }
+        ],
+        "trendingCategories": [
+          {
+            "id": "1585",
+            "name": "Vibe Coding Tools",
+            "path": "/categories/vibe-coding",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1552",
+            "name": "AI Dictation Apps",
+            "path": "/categories/ai-dictation-apps",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1288",
+            "name": "AI notetakers",
+            "path": "/categories/ai-meeting-notetakers",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "1123",
+            "name": "Code Review Tools",
+            "path": "/categories/code-review-tools",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "74",
+            "name": "No-code Platforms",
+            "path": "/categories/no-code-platforms",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "200",
+            "name": "Figma Plugins",
+            "path": "/categories/figma-plugins",
+            "__typename": "ProductCategory"
+          },
+          {
+            "id": "81",
+            "name": "Static site generators",
+            "path": "/categories/static-site-generators",
+            "__typename": "ProductCategory"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": [
+      {
+        "data": {
+          "product": {
+            "id": "106091",
+            "pageVariant": {
+              "__typename": "ProductPageVariantHighlightedLaunch",
+              "product": {
+                "id": "106091",
+                "slug": "notion",
+                "name": "Notion",
+                "tagline": "The all-in-one workspace",
+                "url": "https://www.producthunt.com/products/notion",
+                "__typename": "Product",
+                "latestLaunch": {
+                  "id": "1085132",
+                  "slug": "notion-custom-agents",
+                  "name": "Notion Custom Agents",
+                  "tagline": "Anything you can do in Notion, your Agent can do for you.",
+                  "isMaker": false,
+                  "thumbnailImageUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                  "productState": "default",
+                  "__typename": "Post",
+                  "scheduledAt": "2026-02-25T00:01:00-08:00",
+                  "launchingToday": true,
+                  "launchedThisWeek": true,
+                  "makerComment": {
+                    "id": "5169504",
+                    "isHidden": false,
+                    "isSticky": true,
+                    "read": false,
+                    "bodyHtml": "<p>This is a big update for teams already living inside <a href=\"https://www.producthunt.com/products/notion\" target=\"_blank\" rel=\"noopener\">@Notion</a>.</p><p></p><p>What excites me most is that Notion Custom Agents aren’t just “chat with AI”, they’re autonomous workflows that actually run on triggers and schedules. That shift from reactive to proactive is incredible.</p><p></p><p><strong>A few things I love:</strong></p><ul><li><p>Q&amp;A Agents that instantly answer repeat questions using Notion + connected tools (goodbye Slack noise)</p></li><li><p>Task routing agents that automatically triage incoming work (this alone can save ops teams hours weekly)</p></li><li><p>Status update agents that gather context and draft recurring reports (async teams will love this)</p></li><li><p>Plain-language Agent Builder... describe it, and it builds it</p></li><li><p>Granular permissions per agent (huge for enterprise confidence)</p></li><li><p>Full audit logs + reversible changes (critical for trust)</p></li><li><p>Works inside existing workflows (no rebuilding knowledge)</p></li></ul><p>Lowkey excited to see what workflows Notion power users build with this. :)<br></p><p><strong>Get started here</strong>: <a href=\"https://www.notion.com/product/agents?ref=producthunt\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">https://www.notion.com/product/agents</a></p><p><br>P.S. Follow me on Product Hunt for discovering the latest and greatest AI / SaaS products: <a href=\"https://www.producthunt.com/@rohanrecommends\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">@rohanrecommends</a> :)</p>",
+                    "subject": {
+                      "id": "1085132",
+                      "user": {
+                        "id": "4325010",
+                        "isFollowed": false,
+                        "name": "Rohan Chaubey",
+                        "username": "rohanrecommends",
+                        "avatarUrl": "https://ph-avatars.imgix.net/4325010/a8bdb2a7-d1ec-444a-9823-2833c30c540c.jpeg",
+                        "__typename": "User"
+                      },
+                      "product": {
+                        "id": "106091",
+                        "isSubscribed": false,
+                        "slug": "notion",
+                        "name": "Notion",
+                        "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                        "isNoLongerOnline": false,
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post",
+                      "slug": "notion-custom-agents"
+                    },
+                    "user": {
+                      "id": "4325010",
+                      "name": "Rohan Chaubey",
+                      "username": "rohanrecommends",
+                      "isProminent": false,
+                      "__typename": "User",
+                      "isAmbassador": false,
+                      "selectedBylineProduct": null,
+                      "avatarUrl": "https://ph-avatars.imgix.net/4325010/a8bdb2a7-d1ec-444a-9823-2833c30c540c.jpeg",
+                      "isAccountVerified": true,
+                      "topProductBadge": null,
+                      "topHunterBadge": null,
+                      "topLaunchBadge": null
+                    },
+                    "poll": null,
+                    "hasVoted": false,
+                    "votesCount": 1,
+                    "__typename": "Comment",
+                    "isPinned": false,
+                    "score": null,
+                    "approvalStatus": "approved",
+                    "inputInfo": null,
+                    "path": "/products/notion?comment=5169504",
+                    "url": "https://www.producthunt.com/products/notion?comment=5169504",
+                    "canViewReplyBtn": false,
+                    "createdAt": "2026-02-24T09:38:00-08:00",
+                    "canAward": false,
+                    "award": null,
+                    "canDestroy": false,
+                    "canEdit": false,
+                    "llmAuthenticityGrade": null,
+                    "llmContentQualityGrade": null,
+                    "llmAuthenticityReason": null,
+                    "llmContentQualityReason": null,
+                    "badges": [
+                      "hunter"
+                    ],
+                    "parent": null,
+                    "isFlaggedByViewer": false,
+                    "commentStatusReason": null,
+                    "isAutomaticAction": null,
+                    "moderatorName": null,
+                    "llmSpamGrade": null,
+                    "llmSpamReason": null,
+                    "body": "<p>This is a big update for teams already living inside <a href=\"https://www.producthunt.com/products/notion\" target=\"_blank\" rel=\"noopener\">@Notion</a>.</p><p></p><p>What excites me most is that Notion Custom Agents aren’t just “chat with AI”, they’re autonomous workflows that actually run on triggers and schedules. That shift from reactive to proactive is incredible.</p><p></p><p><strong>A few things I love:</strong></p><ul><li><p>Q&amp;A Agents that instantly answer repeat questions using Notion + connected tools (goodbye Slack noise)</p></li><li><p>Task routing agents that automatically triage incoming work (this alone can save ops teams hours weekly)</p></li><li><p>Status update agents that gather context and draft recurring reports (async teams will love this)</p></li><li><p>Plain-language Agent Builder... describe it, and it builds it</p></li><li><p>Granular permissions per agent (huge for enterprise confidence)</p></li><li><p>Full audit logs + reversible changes (critical for trust)</p></li><li><p>Works inside existing workflows (no rebuilding knowledge)</p></li></ul><p>Lowkey excited to see what workflows Notion power users build with this. :)<br></p><p><strong>Get started here</strong>: <a href=\"https://www.notion.com/product/agents?ref=producthunt\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">https://www.notion.com/product/agents</a></p><p><br>P.S. Follow me on Product Hunt for discovering the latest and greatest AI / SaaS products: <a href=\"https://www.producthunt.com/@rohanrecommends\" target=\"_blank\" rel=\"nofollow noopener noreferrer\">@rohanrecommends</a> :)</p>",
+                    "repliesCount": 0,
+                    "visibleRepliesCount": 0
+                  }
+                },
+                "followersCount": 16437,
+                "isSubscribed": false,
+                "badges": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "5629407",
+                        "year": "2024",
+                        "position": 1,
+                        "category": "No Code",
+                        "post": {
+                          "id": "465560",
+                          "name": "Notion Sites",
+                          "__typename": "Post"
+                        },
+                        "__typename": "GoldenKittyAwardBadge"
+                      },
+                      "__typename": "BadgeEdge"
+                    }
+                  ],
+                  "__typename": "Connection"
+                },
+                "isMaker": false,
+                "isStacked": false,
+                "isViewerTeamMember": null,
+                "stacksCount": 149132,
+                "stackers": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "726999",
+                        "name": "Aaron O'Leary",
+                        "username": "aaronoleary",
+                        "avatarUrl": "https://ph-avatars.imgix.net/726999/17085108-59fb-4cb7-8d9e-91a0c10cc14f.jpeg",
+                        "__typename": "User"
+                      },
+                      "__typename": "UserEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "10748",
+                        "name": "Nichole Elizabeth DeMerè (Eithiriel)",
+                        "username": "nikkielizdemere",
+                        "avatarUrl": "https://ph-avatars.imgix.net/10748/c946933a-b78f-4960-a87b-e8fe3ef8e5ed.jpeg",
+                        "__typename": "User"
+                      },
+                      "__typename": "UserEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "3090293",
+                        "name": "Easlo",
+                        "username": "heyeaslo",
+                        "avatarUrl": "https://ph-avatars.imgix.net/3090293/225e86a4-18a3-42b3-9f88-e85d3bad3d73.png",
+                        "__typename": "User"
+                      },
+                      "__typename": "UserEdge"
+                    }
+                  ],
+                  "__typename": "UserConnection"
+                },
+                "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                "reviewsRating": 4.83,
+                "isNoLongerOnline": false,
+                "proConTags": [
+                  {
+                    "id": "2291",
+                    "name": "all-in-one workspace",
+                    "type": "Positive",
+                    "count": 198,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "1529",
+                    "name": "flexible customization",
+                    "type": "Positive",
+                    "count": 99,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "454",
+                    "name": "project management",
+                    "type": "Positive",
+                    "count": 99,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "88",
+                    "name": "team collaboration",
+                    "type": "Positive",
+                    "count": 95,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "118",
+                    "name": "note-taking",
+                    "type": "Positive",
+                    "count": 81,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "121",
+                    "name": "task management",
+                    "type": "Positive",
+                    "count": 53,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "632",
+                    "name": "knowledge management",
+                    "type": "Positive",
+                    "count": 45,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2293",
+                    "name": "database functionality",
+                    "type": "Positive",
+                    "count": 42,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "888",
+                    "name": "clean interface",
+                    "type": "Positive",
+                    "count": 39,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2297",
+                    "name": "productivity",
+                    "type": "Positive",
+                    "count": 25,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "461",
+                    "name": "steep learning curve",
+                    "type": "Negative",
+                    "count": 22,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "23",
+                    "name": "slow performance",
+                    "type": "Negative",
+                    "count": 21,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2290",
+                    "name": "extensive templates",
+                    "type": "Positive",
+                    "count": 17,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "508",
+                    "name": "integration with other tools",
+                    "type": "Positive",
+                    "count": 14,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2295",
+                    "name": "overwhelming features",
+                    "type": "Negative",
+                    "count": 14,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "398",
+                    "name": "real-time collaboration",
+                    "type": "Positive",
+                    "count": 12,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2296",
+                    "name": "complex UI",
+                    "type": "Negative",
+                    "count": 7,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "698",
+                    "name": "intuitive design",
+                    "type": "Positive",
+                    "count": 5,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2215",
+                    "name": "efficient workflow",
+                    "type": "Positive",
+                    "count": 4,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2292",
+                    "name": "lack of offline mode",
+                    "type": "Negative",
+                    "count": 4,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2294",
+                    "name": "integration with other tools",
+                    "type": "Negative",
+                    "count": 3,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "757",
+                    "name": "productivity boost",
+                    "type": "Positive",
+                    "count": 3,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "872",
+                    "name": "cross-device sync",
+                    "type": "Positive",
+                    "count": 2,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "31139",
+                    "name": "add more emojis",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "43641",
+                    "name": "ai accuracy issues",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "30523",
+                    "name": "database functionality",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "23196",
+                    "name": "inaccurate table recognition",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2298",
+                    "name": "intuitive design",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "7289",
+                    "name": "latency issues",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "43640",
+                    "name": "notion ai",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "45737",
+                    "name": "offline functionality",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "499",
+                    "name": "real-time analytics",
+                    "type": "Positive",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2543",
+                    "name": "table formatting limitations",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "2299",
+                    "name": "task management",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  },
+                  {
+                    "id": "838",
+                    "name": "user-friendly interface",
+                    "type": "Negative",
+                    "count": 1,
+                    "__typename": "ReviewAiProConTag"
+                  }
+                ],
+                "reviewQuestions": [
+                  {
+                    "id": "245",
+                    "category": "Adoption",
+                    "question": "How well does Notion replace separate notes and tasks apps?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "246",
+                    "category": "Speed & UX",
+                    "question": "Is performance slow with large databases or many pages?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "247",
+                    "category": "Offline",
+                    "question": "How reliable is offline access across devices?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "248",
+                    "category": "Collaboration",
+                    "question": "Does real-time collaboration feel responsive for distributed teams?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "249",
+                    "category": "Onboarding",
+                    "question": "How steep was the learning curve for your team?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "250",
+                    "category": "Templates",
+                    "question": "Which templates actually saved you time?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "251",
+                    "category": "Databases",
+                    "question": "How powerful are custom databases for project tracking?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "252",
+                    "category": "Project Management",
+                    "question": "Is timeline view useful for roadmaps and deadlines?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "253",
+                    "category": "AI Assistant",
+                    "question": "Does the AI writing assistant improve clarity and speed?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "254",
+                    "category": "Integrations",
+                    "question": "How well does Notion integrate with your existing tools?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "255",
+                    "category": "Website Publishing",
+                    "question": "Have you published pages as a website successfully?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "256",
+                    "category": "Admin & Security",
+                    "question": "Are permissions and access controls easy to manage?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "257",
+                    "category": "Reliability",
+                    "question": "Does cross-device sync ever cause conflicts or data loss?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "258",
+                    "category": "Knowledge Management",
+                    "question": "Can Notion handle complex team knowledge bases?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "259",
+                    "category": "Ease of Use",
+                    "question": "Is the interface intuitive for non-technical users?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "260",
+                    "category": "Task Management",
+                    "question": "How do you manage tasks and recurring to-dos?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "261",
+                    "category": "Advanced Features",
+                    "question": "What limitations did you hit with database formulas?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "262",
+                    "category": "Calendars",
+                    "question": "Does Notion replace your calendar, or just complement it?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "263",
+                    "category": "Cost",
+                    "question": "How does pricing scale as your team grows?",
+                    "__typename": "ReviewQuestion"
+                  },
+                  {
+                    "id": "264",
+                    "category": "UX Friction",
+                    "question": "What features felt overwhelming or unnecessary?",
+                    "__typename": "ReviewQuestion"
+                  }
+                ],
+                "detailedReview": null,
+                "postsCount": 23,
+                "posts": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "1085132",
+                        "createdAt": "2026-02-25T00:01:00-08:00",
+                        "slug": "notion-custom-agents",
+                        "name": "Notion Custom Agents",
+                        "tagline": "Anything you can do in Notion, your Agent can do for you.",
+                        "shortenedUrl": "/r/p/1085132",
+                        "dailyRank": "2",
+                        "weeklyRank": "9",
+                        "monthlyRank": null,
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": null,
+                        "thumbnailImageUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": "2026-02-25T00:01:00-08:00",
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 319,
+                        "launchDayScore": 319,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-25T20:32:36-08:00",
+                        "commentsCount": 6,
+                        "badges": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "8345318",
+                                "post": {
+                                  "id": "1085132",
+                                  "slug": "notion-custom-agents",
+                                  "name": "Notion Custom Agents",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": null,
+                                  "__typename": "Post"
+                                },
+                                "position": 2,
+                                "period": "daily",
+                                "date": "2026-02-25",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            }
+                          ],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "963721",
+                        "createdAt": "2025-05-13T00:01:00-07:00",
+                        "slug": "ai-meeting-notes-by-notion",
+                        "name": "AI Meeting Notes by Notion",
+                        "tagline": "Perfect meeting memory in Notion",
+                        "shortenedUrl": "/r/p/963721",
+                        "dailyRank": "1",
+                        "weeklyRank": "1",
+                        "monthlyRank": "5",
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product"
+                        },
+                        "thumbnailImageUuid": "ab6408e9-4bd7-489c-a4f1-fed7c2834dfc.png",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": "2025-05-13T00:01:00-07:00",
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 936,
+                        "launchDayScore": 686,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-25T13:15:00-08:00",
+                        "commentsCount": 67,
+                        "badges": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "6142117",
+                                "post": {
+                                  "id": "963721",
+                                  "slug": "ai-meeting-notes-by-notion",
+                                  "name": "AI Meeting Notes by Notion",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "Post"
+                                },
+                                "position": 5,
+                                "period": "monthly",
+                                "date": "2025-05-13",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            },
+                            {
+                              "node": {
+                                "id": "6001883",
+                                "post": {
+                                  "id": "963721",
+                                  "slug": "ai-meeting-notes-by-notion",
+                                  "name": "AI Meeting Notes by Notion",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "Post"
+                                },
+                                "position": 1,
+                                "period": "weekly",
+                                "date": "2025-05-13",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            },
+                            {
+                              "node": {
+                                "id": "5936208",
+                                "post": {
+                                  "id": "963721",
+                                  "slug": "ai-meeting-notes-by-notion",
+                                  "name": "AI Meeting Notes by Notion",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "Post"
+                                },
+                                "position": 1,
+                                "period": "daily",
+                                "date": "2025-05-13",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            }
+                          ],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "952440",
+                        "createdAt": "2025-04-15T08:00:00-07:00",
+                        "slug": "notion-mail",
+                        "name": "Notion Mail",
+                        "tagline": "The first inbox that thinks like you",
+                        "shortenedUrl": "/r/p/952440",
+                        "dailyRank": "5",
+                        "weeklyRank": "17",
+                        "monthlyRank": "76",
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product"
+                        },
+                        "thumbnailImageUuid": "7607645b-721f-46aa-ad47-0d5110df3cc6.png",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": "2025-04-15T08:00:00-07:00",
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 433,
+                        "launchDayScore": 307,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-25T05:15:03-08:00",
+                        "commentsCount": 29,
+                        "badges": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "5697135",
+                                "post": {
+                                  "id": "952440",
+                                  "slug": "notion-mail",
+                                  "name": "Notion Mail",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "Post"
+                                },
+                                "position": 5,
+                                "period": "daily",
+                                "date": "2025-04-15",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            }
+                          ],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "948726",
+                        "createdAt": "2025-04-02T00:04:00-07:00",
+                        "slug": "notionmail-2",
+                        "name": "NotionMail",
+                        "tagline": "Personalized to your work and designed like Notion",
+                        "shortenedUrl": "/r/p/948726",
+                        "dailyRank": "14",
+                        "weeklyRank": "52",
+                        "monthlyRank": "215",
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product"
+                        },
+                        "thumbnailImageUuid": "14a9f59e-1cc8-46e6-8aad-e865363f254f.svg",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": "2025-04-02T00:04:00-07:00",
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 185,
+                        "launchDayScore": 144,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-23T21:53:52-08:00",
+                        "commentsCount": 8,
+                        "badges": {
+                          "edges": [],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "911084",
+                        "createdAt": "2025-02-25T00:01:00-08:00",
+                        "slug": "learning-hub-3",
+                        "name": "Learning Hub",
+                        "tagline": "Digital learning environment to crush your next exam.",
+                        "shortenedUrl": "/r/p/911084",
+                        "dailyRank": "109",
+                        "weeklyRank": "588",
+                        "monthlyRank": "2633",
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product"
+                        },
+                        "thumbnailImageUuid": "2aaea184-0a60-4917-ac4b-bbdf036ef3ee.gif",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": null,
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 6,
+                        "launchDayScore": 6,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-17T02:58:03-08:00",
+                        "commentsCount": 2,
+                        "badges": {
+                          "edges": [],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "771100",
+                        "createdAt": "2025-01-10T00:01:00-08:00",
+                        "slug": "notion-faces",
+                        "name": "Notion Faces",
+                        "tagline": "Bring your custom self-portrait in Notion, officially",
+                        "shortenedUrl": "/r/p/771100",
+                        "dailyRank": "4",
+                        "weeklyRank": "15",
+                        "monthlyRank": "62",
+                        "product": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product",
+                          "isSubscribed": false
+                        },
+                        "redirectToProduct": {
+                          "id": "106091",
+                          "slug": "notion",
+                          "__typename": "Product"
+                        },
+                        "thumbnailImageUuid": "6510af5f-07d8-4144-8d5f-b4a9151afb91.x-icon",
+                        "productState": "default",
+                        "__typename": "Post",
+                        "hideVotesCount": false,
+                        "featuredAt": "2025-01-10T00:01:00-08:00",
+                        "disabledWhenScheduled": true,
+                        "embargoPreviewAt": null,
+                        "latestScore": 449,
+                        "launchDayScore": 422,
+                        "hasVoted": false,
+                        "updatedAt": "2026-02-24T21:45:26-08:00",
+                        "commentsCount": 18,
+                        "badges": {
+                          "edges": [
+                            {
+                              "node": {
+                                "id": "5183958",
+                                "post": {
+                                  "id": "771100",
+                                  "slug": "notion-faces",
+                                  "name": "Notion Faces",
+                                  "product": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "redirectToProduct": {
+                                    "id": "106091",
+                                    "slug": "notion",
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "Post"
+                                },
+                                "position": 4,
+                                "period": "daily",
+                                "date": "2025-01-10",
+                                "__typename": "TopPostBadge"
+                              },
+                              "__typename": "BadgeEdge"
+                            }
+                          ],
+                          "__typename": "Connection"
+                        }
+                      },
+                      "__typename": "PostEdge"
+                    }
+                  ],
+                  "__typename": "PostConnection"
+                },
+                "discussionForum": {
+                  "id": "49857",
+                  "path": "/p/notion",
+                  "threads": {
+                    "totalCount": 5,
+                    "edges": [
+                      {
+                        "node": {
+                          "id": "644550",
+                          "slug": "i-m-ben-lang-head-of-community-at-notion-ama",
+                          "path": "/p/notion/i-m-ben-lang-head-of-community-at-notion-ama",
+                          "title": "I'm Ben Lang, Head of Community at Notion. AMA 👇",
+                          "descriptionPreview": "Back in 2018, I launched Notion Pages on Product Hunt, it was the #2 product of the week. Shortly after, I joined Notion to support the community. Our community has written books about Notion, created mascots, hosted hundreds of events, started full-time businesses around Notion, and much more. Many of the highest-ranking products on Product Hunt in the past two years have been Notion templates. Going back in time, Notion launched",
+                          "forum": {
+                            "id": "49857",
+                            "slug": "notion",
+                            "path": "/p/notion",
+                            "__typename": "DiscussionForumType",
+                            "subject": {
+                              "id": "106091",
+                              "name": "Notion",
+                              "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                              "isNoLongerOnline": false,
+                              "__typename": "Product"
+                            }
+                          },
+                          "commentable": {
+                            "id": "123897",
+                            "featuredComment": null,
+                            "__typename": "DiscussionThread",
+                            "discussionForums": {
+                              "nodes": [
+                                {
+                                  "id": "49857",
+                                  "path": "/p/notion",
+                                  "subject": {
+                                    "id": "106091",
+                                    "name": "Notion",
+                                    "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                                    "isNoLongerOnline": false,
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "DiscussionForumType"
+                                }
+                              ],
+                              "__typename": "DiscussionForumTypeConnection"
+                            },
+                            "hasVoted": false,
+                            "votesCount": 268
+                          },
+                          "createdAt": "2021-11-15T00:09:10-08:00",
+                          "isFeatured": true,
+                          "isPinned": false,
+                          "user": {
+                            "id": "1880",
+                            "name": "Ben Lang",
+                            "username": "benln",
+                            "avatarUrl": "https://ph-avatars.imgix.net/1880/3dc00e80-198a-43d1-9129-a08c5d433001.jpeg",
+                            "__typename": "User"
+                          },
+                          "__typename": "DiscussionForumAssociationType",
+                          "commentsCount": 93
+                        },
+                        "__typename": "DiscussionForumAssociationTypeEdge"
+                      },
+                      {
+                        "node": {
+                          "id": "776763",
+                          "slug": "we-are-sameer-jatin-we-made-a-no-code-app-builder-for-notion-users-ama",
+                          "path": "/p/notion/we-are-sameer-jatin-we-made-a-no-code-app-builder-for-notion-users-ama",
+                          "title": "We are Sameer & Jatin, we made a no-code app builder for Notion users! AMA 👇",
+                          "descriptionPreview": "<p>We are a small team of 2 who built NotionApps - a no-code app builder specifically designed for Notion users. </p><p></p><p>We first launched NotionApps on Product Hunt late 2023. Back then, it was just an MVP. We ve since added a variety of features and all the essential building blocks that turn Notion into a reliable backend to build apps, special thanks to feedback we got from our early users. <br>We launched our second version today, and felt like this is a good time to engage with the Notion community here. </p><p></p>",
+                          "forum": {
+                            "id": "49857",
+                            "slug": "notion",
+                            "path": "/p/notion",
+                            "__typename": "DiscussionForumType",
+                            "subject": {
+                              "id": "106091",
+                              "name": "Notion",
+                              "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                              "isNoLongerOnline": false,
+                              "__typename": "Product"
+                            }
+                          },
+                          "commentable": {
+                            "id": "699728",
+                            "featuredComment": null,
+                            "__typename": "DiscussionThread",
+                            "discussionForums": {
+                              "nodes": [
+                                {
+                                  "id": "49857",
+                                  "path": "/p/notion",
+                                  "subject": {
+                                    "id": "106091",
+                                    "name": "Notion",
+                                    "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                                    "isNoLongerOnline": false,
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "DiscussionForumType"
+                                }
+                              ],
+                              "__typename": "DiscussionForumTypeConnection"
+                            },
+                            "hasVoted": false,
+                            "votesCount": 74
+                          },
+                          "createdAt": "2025-05-14T00:00:00-07:00",
+                          "isFeatured": true,
+                          "isPinned": false,
+                          "user": {
+                            "id": "2174356",
+                            "name": "Sameer Sanagala",
+                            "username": "sameer_sanagala",
+                            "avatarUrl": "https://ph-avatars.imgix.net/2174356/3b48f0fd-dfb7-4b84-b8f2-deedac444f6f.jpeg",
+                            "__typename": "User"
+                          },
+                          "__typename": "DiscussionForumAssociationType",
+                          "commentsCount": 16
+                        },
+                        "__typename": "DiscussionForumAssociationTypeEdge"
+                      },
+                      {
+                        "node": {
+                          "id": "644551",
+                          "slug": "what-are-some-of-the-practices-of-great-teams-using-notion",
+                          "path": "/p/notion/what-are-some-of-the-practices-of-great-teams-using-notion",
+                          "title": "What are some of the practices of great teams using Notion?",
+                          "descriptionPreview": "1 Using Notion as a central hub for team communication and collaboration. Teams can use Notion to share updates, ideas, and feedback in real-time, and to keep track of tasks and projects. 2 Using Notion to document and organize team processes and procedures. This can help to standardize workflows and ensure that everyone is on the same page. 3 Use Notion to track and manage team projects. Teams can use Notion to create project pages, assign tasks, and set deadlines, helping everyone to stay organized and on track. 4 Use Notion to share resources and knowledge within the team. Teams can use Notion to create a central repository of useful information, such as documents, templates, and reference materials. 5 Use Notion to track team metrics and goals. Teams can use Notion to set and track progress towards key performance indicators (KPIs) and other goals. the key to using Notion effectively as a team is to find a way to use it that works for your team's specific needs and workflow. Grab my notion business shift planner\nhere https://whop.com/notion-business...",
+                          "forum": {
+                            "id": "49857",
+                            "slug": "notion",
+                            "path": "/p/notion",
+                            "__typename": "DiscussionForumType",
+                            "subject": {
+                              "id": "106091",
+                              "name": "Notion",
+                              "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                              "isNoLongerOnline": false,
+                              "__typename": "Product"
+                            }
+                          },
+                          "commentable": {
+                            "id": "187318",
+                            "featuredComment": null,
+                            "__typename": "DiscussionThread",
+                            "discussionForums": {
+                              "nodes": [
+                                {
+                                  "id": "49857",
+                                  "path": "/p/notion",
+                                  "subject": {
+                                    "id": "106091",
+                                    "name": "Notion",
+                                    "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                                    "isNoLongerOnline": false,
+                                    "__typename": "Product"
+                                  },
+                                  "__typename": "DiscussionForumType"
+                                }
+                              ],
+                              "__typename": "DiscussionForumTypeConnection"
+                            },
+                            "hasVoted": false,
+                            "votesCount": 66
+                          },
+                          "createdAt": "2023-01-09T00:05:39-08:00",
+                          "isFeatured": true,
+                          "isPinned": false,
+                          "user": {
+                            "id": "4143792",
+                            "name": "Edun Kerry",
+                            "username": "edun_kerry",
+                            "avatarUrl": "https://ph-avatars.imgix.net/4143792/c93b50c3-3a21-405f-95fb-a43e7f20a93d.png",
+                            "__typename": "User"
+                          },
+                          "__typename": "DiscussionForumAssociationType",
+                          "commentsCount": 12
+                        },
+                        "__typename": "DiscussionForumAssociationTypeEdge"
+                      }
+                    ],
+                    "__typename": "DiscussionForumAssociationTypeConnectionWithCount"
+                  },
+                  "__typename": "DiscussionForumType"
+                },
+                "media": [
+                  {
+                    "id": "1066749",
+                    "imageUuid": "c676fe01-ca21-42f4-9873-fb5b561e94a9.gif",
+                    "mediaType": "image",
+                    "originalWidth": 960,
+                    "originalHeight": 540,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "1066748",
+                    "imageUuid": "a9e7425a-7510-46a8-a663-d3b858590075.png",
+                    "mediaType": "image",
+                    "originalWidth": 1932,
+                    "originalHeight": 1066,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "1066747",
+                    "imageUuid": "6a8f48a7-77f9-406e-9b73-79108150f9e1.png",
+                    "mediaType": "image",
+                    "originalWidth": 1988,
+                    "originalHeight": 1070,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  }
+                ],
+                "screenshots": {
+                  "edges": [],
+                  "__typename": "ProductScreenshotConnection"
+                },
+                "visiblePosts": {
+                  "totalCount": 23,
+                  "__typename": "PostConnection"
+                },
+                "questions": []
+              },
+              "launch": {
+                "id": "1085132",
+                "launchNumber": 23,
+                "launchedThisWeek": true,
+                "launchingToday": true,
+                "hasVoted": false,
+                "latestScore": 319,
+                "launchDayScore": 319,
+                "disabledWhenScheduled": true,
+                "featuredAt": "2026-02-25T00:01:00-08:00",
+                "updatedAt": "2026-02-25T20:32:36-08:00",
+                "createdAt": "2026-02-25T00:01:00-08:00",
+                "embargoPreviewAt": null,
+                "product": {
+                  "id": "106091",
+                  "isSubscribed": false,
+                  "__typename": "Product",
+                  "isTopProduct": true,
+                  "slug": "notion",
+                  "name": "Notion",
+                  "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                  "reviewsRating": 4.83,
+                  "isNoLongerOnline": false,
+                  "proConTags": [
+                    {
+                      "id": "2291",
+                      "name": "all-in-one workspace",
+                      "type": "Positive",
+                      "count": 198,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "1529",
+                      "name": "flexible customization",
+                      "type": "Positive",
+                      "count": 99,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "454",
+                      "name": "project management",
+                      "type": "Positive",
+                      "count": 99,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "88",
+                      "name": "team collaboration",
+                      "type": "Positive",
+                      "count": 95,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "118",
+                      "name": "note-taking",
+                      "type": "Positive",
+                      "count": 81,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "121",
+                      "name": "task management",
+                      "type": "Positive",
+                      "count": 53,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "632",
+                      "name": "knowledge management",
+                      "type": "Positive",
+                      "count": 45,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2293",
+                      "name": "database functionality",
+                      "type": "Positive",
+                      "count": 42,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "888",
+                      "name": "clean interface",
+                      "type": "Positive",
+                      "count": 39,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2297",
+                      "name": "productivity",
+                      "type": "Positive",
+                      "count": 25,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "461",
+                      "name": "steep learning curve",
+                      "type": "Negative",
+                      "count": 22,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "23",
+                      "name": "slow performance",
+                      "type": "Negative",
+                      "count": 21,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2290",
+                      "name": "extensive templates",
+                      "type": "Positive",
+                      "count": 17,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "508",
+                      "name": "integration with other tools",
+                      "type": "Positive",
+                      "count": 14,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2295",
+                      "name": "overwhelming features",
+                      "type": "Negative",
+                      "count": 14,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "398",
+                      "name": "real-time collaboration",
+                      "type": "Positive",
+                      "count": 12,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2296",
+                      "name": "complex UI",
+                      "type": "Negative",
+                      "count": 7,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "698",
+                      "name": "intuitive design",
+                      "type": "Positive",
+                      "count": 5,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2215",
+                      "name": "efficient workflow",
+                      "type": "Positive",
+                      "count": 4,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2292",
+                      "name": "lack of offline mode",
+                      "type": "Negative",
+                      "count": 4,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2294",
+                      "name": "integration with other tools",
+                      "type": "Negative",
+                      "count": 3,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "757",
+                      "name": "productivity boost",
+                      "type": "Positive",
+                      "count": 3,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "872",
+                      "name": "cross-device sync",
+                      "type": "Positive",
+                      "count": 2,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "31139",
+                      "name": "add more emojis",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "43641",
+                      "name": "ai accuracy issues",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "30523",
+                      "name": "database functionality",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "23196",
+                      "name": "inaccurate table recognition",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2298",
+                      "name": "intuitive design",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "7289",
+                      "name": "latency issues",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "43640",
+                      "name": "notion ai",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "45737",
+                      "name": "offline functionality",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "499",
+                      "name": "real-time analytics",
+                      "type": "Positive",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2543",
+                      "name": "table formatting limitations",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "2299",
+                      "name": "task management",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    },
+                    {
+                      "id": "838",
+                      "name": "user-friendly interface",
+                      "type": "Negative",
+                      "count": 1,
+                      "__typename": "ReviewAiProConTag"
+                    }
+                  ],
+                  "reviewQuestions": [
+                    {
+                      "id": "245",
+                      "category": "Adoption",
+                      "question": "How well does Notion replace separate notes and tasks apps?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "246",
+                      "category": "Speed & UX",
+                      "question": "Is performance slow with large databases or many pages?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "247",
+                      "category": "Offline",
+                      "question": "How reliable is offline access across devices?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "248",
+                      "category": "Collaboration",
+                      "question": "Does real-time collaboration feel responsive for distributed teams?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "249",
+                      "category": "Onboarding",
+                      "question": "How steep was the learning curve for your team?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "250",
+                      "category": "Templates",
+                      "question": "Which templates actually saved you time?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "251",
+                      "category": "Databases",
+                      "question": "How powerful are custom databases for project tracking?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "252",
+                      "category": "Project Management",
+                      "question": "Is timeline view useful for roadmaps and deadlines?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "253",
+                      "category": "AI Assistant",
+                      "question": "Does the AI writing assistant improve clarity and speed?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "254",
+                      "category": "Integrations",
+                      "question": "How well does Notion integrate with your existing tools?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "255",
+                      "category": "Website Publishing",
+                      "question": "Have you published pages as a website successfully?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "256",
+                      "category": "Admin & Security",
+                      "question": "Are permissions and access controls easy to manage?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "257",
+                      "category": "Reliability",
+                      "question": "Does cross-device sync ever cause conflicts or data loss?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "258",
+                      "category": "Knowledge Management",
+                      "question": "Can Notion handle complex team knowledge bases?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "259",
+                      "category": "Ease of Use",
+                      "question": "Is the interface intuitive for non-technical users?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "260",
+                      "category": "Task Management",
+                      "question": "How do you manage tasks and recurring to-dos?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "261",
+                      "category": "Advanced Features",
+                      "question": "What limitations did you hit with database formulas?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "262",
+                      "category": "Calendars",
+                      "question": "Does Notion replace your calendar, or just complement it?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "263",
+                      "category": "Cost",
+                      "question": "How does pricing scale as your team grows?",
+                      "__typename": "ReviewQuestion"
+                    },
+                    {
+                      "id": "264",
+                      "category": "UX Friction",
+                      "question": "What features felt overwhelming or unnecessary?",
+                      "__typename": "ReviewQuestion"
+                    }
+                  ],
+                  "detailedReview": null,
+                  "canEdit": false,
+                  "websiteUrl": "https://www.notion.so",
+                  "websiteDomain": "notion.so",
+                  "isClaimed": true,
+                  "canClaim": false,
+                  "isViewerTeamMember": null,
+                  "viewerPendingTeamRequest": null,
+                  "tagline": "The all-in-one workspace",
+                  "cleanUrl": "notion.so",
+                  "firstLaunch": false,
+                  "latestLaunch": {
+                    "id": "1085132",
+                    "launchedThisWeek": true,
+                    "launchingToday": true,
+                    "__typename": "Post"
+                  },
+                  "postsCount": 23
+                },
+                "__typename": "Post",
+                "isAvailable": true,
+                "productState": "default",
+                "links": [
+                  {
+                    "id": "1398688",
+                    "redirectPath": "/r/JVW32FVUHJJTJU",
+                    "storeName": "Website",
+                    "websiteName": "www.notion.so",
+                    "devices": [],
+                    "__typename": "ProductLink"
+                  },
+                  {
+                    "id": "1398687",
+                    "redirectPath": "/r/BKCTIGUS56K22A",
+                    "storeName": "Twitter",
+                    "websiteName": "twitter.com",
+                    "devices": [],
+                    "__typename": "ProductLink"
+                  },
+                  {
+                    "id": "1398696",
+                    "redirectPath": "/r/IAF7CDEL6L6AKZ",
+                    "storeName": "Twitter",
+                    "websiteName": "x.com",
+                    "devices": [],
+                    "__typename": "ProductLink"
+                  },
+                  {
+                    "id": "1398748",
+                    "redirectPath": "/r/HBKODBCJDPBIR5",
+                    "storeName": "Other",
+                    "websiteName": "www.notion.com",
+                    "devices": [],
+                    "__typename": "ProductLink"
+                  },
+                  {
+                    "id": "1398749",
+                    "redirectPath": "/r/UPHA466GUDX2ZO",
+                    "storeName": "Other",
+                    "websiteName": "www.notion.ai",
+                    "devices": [],
+                    "__typename": "ProductLink"
+                  }
+                ],
+                "isArchived": false,
+                "trashedAt": null,
+                "weeklyRank": "9",
+                "commentsCount": 6,
+                "name": "Notion Custom Agents",
+                "tagline": "Anything you can do in Notion, your Agent can do for you.",
+                "isTopLaunch": false,
+                "dailyRank": "2",
+                "featured": true,
+                "hideVotesCount": false,
+                "badges": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "8345318",
+                        "post": {
+                          "id": "1085132",
+                          "name": "Notion Custom Agents",
+                          "__typename": "Post",
+                          "slug": "notion-custom-agents",
+                          "product": {
+                            "id": "106091",
+                            "slug": "notion",
+                            "__typename": "Product"
+                          },
+                          "redirectToProduct": null
+                        },
+                        "position": 2,
+                        "period": "daily",
+                        "date": "2026-02-25",
+                        "__typename": "TopPostBadge"
+                      },
+                      "__typename": "BadgeEdge"
+                    }
+                  ],
+                  "__typename": "Connection"
+                },
+                "thumbnailImageUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                "description": "Notion Custom Agents are your always-on AI teammates. Autonomous, team-ready, and easy to build. Assign a task, set a trigger or schedule and they handle it—routing bugs, updating docs, answering questions, drafting reports and nudging the right people. They don’t wait. They just get it done ⚡️",
+                "pricingType": "free",
+                "topics": {
+                  "edges": [
+                    {
+                      "node": {
+                        "id": "46",
+                        "slug": "productivity",
+                        "name": "Productivity",
+                        "__typename": "Topic"
+                      },
+                      "__typename": "TopicEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "268",
+                        "slug": "artificial-intelligence",
+                        "name": "Artificial Intelligence",
+                        "__typename": "Topic"
+                      },
+                      "__typename": "TopicEdge"
+                    },
+                    {
+                      "node": {
+                        "id": "963",
+                        "slug": "notion",
+                        "name": "Notion",
+                        "__typename": "Topic"
+                      },
+                      "__typename": "TopicEdge"
+                    }
+                  ],
+                  "__typename": "TopicConnection"
+                },
+                "promo": null,
+                "slug": "notion-custom-agents",
+                "isMaker": false,
+                "url": "https://www.producthunt.com/products/notion",
+                "user": {
+                  "id": "4325010",
+                  "name": "Rohan Chaubey",
+                  "headline": "PH Hunter | Author | Startup Advisor",
+                  "username": "rohanrecommends",
+                  "avatarUrl": "https://ph-avatars.imgix.net/4325010/a8bdb2a7-d1ec-444a-9823-2833c30c540c.jpeg",
+                  "__typename": "User"
+                },
+                "makers": [
+                  {
+                    "id": "25143",
+                    "name": "akshay kothari",
+                    "headline": "PM, LinkedIn",
+                    "username": "akothari",
+                    "avatarUrl": "https://ph-avatars.imgix.net/25143/original.jpeg",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "8020961",
+                    "name": "Joyce Lim",
+                    "headline": "PMM at Notion.",
+                    "username": "joycelhy",
+                    "avatarUrl": "https://ph-avatars.imgix.net/8020961/original.png",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "803762",
+                    "name": "Varun Rau",
+                    "headline": "engineer @Notion",
+                    "username": "varunrau",
+                    "avatarUrl": "https://ph-avatars.imgix.net/803762/original.jpeg",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "1159546",
+                    "name": "Ivan Zhao",
+                    "headline": null,
+                    "username": "ivanhzhao1",
+                    "avatarUrl": "https://ph-avatars.imgix.net/1159546/original.jpeg",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "731624",
+                    "name": "Simon Last",
+                    "headline": null,
+                    "username": "simon_last",
+                    "avatarUrl": "https://ph-avatars.imgix.net/731624/original.jpeg",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "6174882",
+                    "name": "Gilbert Zhang",
+                    "headline": "Make Mail great Again",
+                    "username": "gzhang99",
+                    "avatarUrl": "https://ph-avatars.imgix.net/6174882/8357b955-da01-476d-82dc-8d4dd0e5d053.png",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "1630761",
+                    "name": "ByeongChan Lee",
+                    "headline": null,
+                    "username": "byeongchan_lee",
+                    "avatarUrl": "https://ph-avatars.imgix.net/1630761/original.png",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "3405973",
+                    "name": "Jake Teton-Landis",
+                    "headline": "@jitl - Amplifying your ability",
+                    "username": "jitl",
+                    "avatarUrl": "https://ph-avatars.imgix.net/3405973/original.jpeg",
+                    "__typename": "User"
+                  },
+                  {
+                    "id": "27953",
+                    "name": "Alicia Liu",
+                    "headline": "alicialiu.net",
+                    "username": "aliciatweet",
+                    "avatarUrl": "https://ph-avatars.imgix.net/27953/original.jpeg",
+                    "__typename": "User"
+                  }
+                ],
+                "detailedReviews": [],
+                "primaryLink": {
+                  "id": "1398688",
+                  "url": "https://www.notion.so/product/agents",
+                  "__typename": "ProductLink"
+                },
+                "media": [
+                  {
+                    "id": "2776129",
+                    "imageUuid": "f485036a-8522-4d1d-824c-eb6538d52115.png",
+                    "mediaType": "image",
+                    "originalWidth": 2268,
+                    "originalHeight": 1348,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776149",
+                    "imageUuid": "6efed533-39da-4289-92d4-b4f982c1d2c0.png",
+                    "mediaType": "image",
+                    "originalWidth": 2194,
+                    "originalHeight": 960,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776148",
+                    "imageUuid": "043a8044-6f7c-441d-9daa-06288ce085bc.png",
+                    "mediaType": "image",
+                    "originalWidth": 2248,
+                    "originalHeight": 988,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776147",
+                    "imageUuid": "12228b26-e282-4b1e-82cc-d267e1ee8dfc.png",
+                    "mediaType": "image",
+                    "originalWidth": 2192,
+                    "originalHeight": 910,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776146",
+                    "imageUuid": "78dcc2c9-bc2e-4e42-8498-911279ff8b05.png",
+                    "mediaType": "image",
+                    "originalWidth": 2148,
+                    "originalHeight": 1796,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776145",
+                    "imageUuid": "e21b7d6b-4f0a-4fda-9198-d8dd06f53bc2.png",
+                    "mediaType": "image",
+                    "originalWidth": 2154,
+                    "originalHeight": 1600,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776144",
+                    "imageUuid": "cd9659c9-7b99-4fa4-b9d5-f1c1afe2ab87.png",
+                    "mediaType": "image",
+                    "originalWidth": 2178,
+                    "originalHeight": 1542,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776143",
+                    "imageUuid": "c6d31ca4-9a47-4276-8ec6-418cbde0afcc.png",
+                    "mediaType": "image",
+                    "originalWidth": 2112,
+                    "originalHeight": 1116,
+                    "metadata": {
+                      "url": null,
+                      "platform": null,
+                      "videoId": null,
+                      "thumbnailWidth": null,
+                      "thumbnailHeight": null,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  },
+                  {
+                    "id": "2776141",
+                    "imageUuid": "96f60f04-e4a4-424c-9039-81e85c71b891.jpeg",
+                    "mediaType": "video",
+                    "originalWidth": 200,
+                    "originalHeight": 113,
+                    "metadata": {
+                      "url": "https://youtu.be/ojAvnSdsc1I?si=l2nONpwGnaIm0Ibq",
+                      "platform": "youtube",
+                      "videoId": "ojAvnSdsc1I",
+                      "thumbnailWidth": 1280,
+                      "thumbnailHeight": 720,
+                      "__typename": "MediaMetadata",
+                      "interactiveDemoId": null,
+                      "interactiveDemoType": null
+                    },
+                    "__typename": "Media"
+                  }
+                ],
+                "moderationReason": null,
+                "launchState": "featured",
+                "canManage": false,
+                "scheduledAt": "2026-02-25T00:01:00-08:00",
+                "isHunter": false,
+                "canDeputyManage": false,
+                "ad1": {
+                  "id": "1",
+                  "subject": "Ghost",
+                  "__typename": "GhostAd"
+                },
+                "ad2": {
+                  "id": "1",
+                  "subject": "Ghost",
+                  "__typename": "GhostAd"
+                },
+                "redirectToProduct": null,
+                "meta": {
+                  "title": "Notion Custom Agents - Anything you can do in Notion, your Agent can do for you",
+                  "__typename": "MetaTags"
+                }
+              }
+            },
+            "__typename": "Product"
+          },
+          "viewer": {
+            "isFeaturedPostMaker": false,
+            "recentLaunch": null,
+            "__typename": "Viewer",
+            "user": null,
+            "isLoggedIn": false,
+            "emailVerified": false
+          },
+          "ad": {
+            "id": "33578",
+            "subject": "Channel",
+            "post": null,
+            "name": "Setapp",
+            "tagline": "Grow, and monetize your app with unified AI gateway",
+            "thumbnailUuid": "2df45e2c-ac8a-4b39-bd15-4b0126eb801e.png",
+            "largeAssetUuid": null,
+            "smallAssetUuid": null,
+            "url": "/r/ad/33578",
+            "variationId": null,
+            "__typename": "Ad"
+          }
+        }
+      },
+      {
+        "data": {
+          "product": {
+            "id": "106091",
+            "canEdit": false,
+            "latestLaunch": {
+              "id": "1085132",
+              "launchedThisWeek": true,
+              "moderationReason": null,
+              "__typename": "Post",
+              "launchState": "featured",
+              "canManage": false,
+              "slug": "notion-custom-agents",
+              "name": "Notion Custom Agents",
+              "createdAt": "2026-02-25T00:01:00-08:00",
+              "scheduledAt": "2026-02-25T00:01:00-08:00",
+              "isMaker": false,
+              "isHunter": false,
+              "product": {
+                "id": "106091",
+                "name": "Notion",
+                "slug": "notion",
+                "canEdit": false,
+                "websiteUrl": "https://www.notion.so",
+                "websiteDomain": "notion.so",
+                "isClaimed": true,
+                "canClaim": false,
+                "isViewerTeamMember": null,
+                "viewerPendingTeamRequest": null,
+                "__typename": "Product",
+                "isSubscribed": false,
+                "tagline": "The all-in-one workspace",
+                "cleanUrl": "notion.so",
+                "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+                "isNoLongerOnline": false
+              },
+              "tagline": "Anything you can do in Notion, your Agent can do for you.",
+              "thumbnailImageUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+              "productState": "default",
+              "launchingToday": true,
+              "dailyRank": "2",
+              "featured": true,
+              "hideVotesCount": false,
+              "featuredAt": "2026-02-25T00:01:00-08:00",
+              "disabledWhenScheduled": true,
+              "embargoPreviewAt": null,
+              "latestScore": 319,
+              "launchDayScore": 319,
+              "hasVoted": false,
+              "updatedAt": "2026-02-25T20:32:36-08:00",
+              "nextPost": {
+                "id": "1085198",
+                "product": {
+                  "id": "111179",
+                  "slug": "google",
+                  "__typename": "Product"
+                },
+                "__typename": "Post"
+              },
+              "previousPost": {
+                "id": "1080572",
+                "product": {
+                  "id": "1165532",
+                  "slug": "kiloclaw",
+                  "__typename": "Product"
+                },
+                "__typename": "Post"
+              },
+              "launchNumber": 23,
+              "canDeputyManage": false,
+              "primaryLink": {
+                "id": "1398688",
+                "url": "https://www.notion.so/product/agents",
+                "__typename": "ProductLink"
+              }
+            },
+            "slug": "notion",
+            "websiteUrl": "https://www.notion.so",
+            "cleanUrl": "notion.so",
+            "iosUrl": "https://www.producthunt.com/r/47e5478295cd4c",
+            "androidUrl": "https://www.producthunt.com/r/3de4ff894c8110",
+            "githubUrl": "",
+            "__typename": "Product",
+            "name": "Notion",
+            "twitterUrl": "https://twitter.com/notion",
+            "facebookUrl": "",
+            "instagramUrl": "https://www.instagram.com/notionhq",
+            "linkedinUrl": "https://www.linkedin.com/company/notionhq/",
+            "angellistUrl": "https://angel.co/notion-software",
+            "threadsUrl": "",
+            "mediumUrl": "",
+            "isTopProduct": true,
+            "goldenKittyBadges": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "8022",
+                    "category": "Desktop Product",
+                    "position": 4,
+                    "year": "2016",
+                    "post": {
+                      "id": "72252",
+                      "slug": "notion-1-0-web-mac-app",
+                      "name": "Notion 1.0 Web + Mac App",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "__typename": "GoldenKittyAwardBadge"
+                  },
+                  "__typename": "GoldenKittyAwardBadgeEdge"
+                }
+              ],
+              "__typename": "GoldenKittyAwardBadgeConnection"
+            },
+            "awards": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "8333",
+                    "post": {
+                      "id": "109071",
+                      "slug": "notion-for-ios",
+                      "name": "Notion for iOS",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 5,
+                    "period": "monthly",
+                    "date": "2017-09-21",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                },
+                {
+                  "node": {
+                    "id": "32673",
+                    "post": {
+                      "id": "295691",
+                      "slug": "notion-api-beta",
+                      "name": "Notion API beta",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 2,
+                    "period": "monthly",
+                    "date": "2021-05-13",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                },
+                {
+                  "node": {
+                    "id": "9427",
+                    "post": {
+                      "id": "122747",
+                      "slug": "notion-2-0",
+                      "name": "Notion 2.0",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 1,
+                    "period": "monthly",
+                    "date": "2018-03-20",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                },
+                {
+                  "node": {
+                    "id": "166",
+                    "post": {
+                      "id": "72252",
+                      "slug": "notion-1-0-web-mac-app",
+                      "name": "Notion 1.0 Web + Mac App",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 1,
+                    "period": "monthly",
+                    "date": "2016-08-09",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                },
+                {
+                  "node": {
+                    "id": "9989",
+                    "post": {
+                      "id": "128396",
+                      "slug": "notion-for-android",
+                      "name": "Notion for Android",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 5,
+                    "period": "monthly",
+                    "date": "2018-06-07",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                },
+                {
+                  "node": {
+                    "id": "12675",
+                    "post": {
+                      "id": "150245",
+                      "slug": "notion-template-gallery",
+                      "name": "Notion Template Gallery",
+                      "product": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "redirectToProduct": {
+                        "id": "106091",
+                        "slug": "notion",
+                        "__typename": "Product"
+                      },
+                      "__typename": "Post"
+                    },
+                    "position": 1,
+                    "period": "monthly",
+                    "date": "2019-04-03",
+                    "__typename": "TopPostBadge"
+                  },
+                  "__typename": "BadgeEdge"
+                }
+              ],
+              "__typename": "Connection"
+            },
+            "tagline": "The all-in-one workspace",
+            "url": "https://www.producthunt.com/products/notion",
+            "followersCount": 16437,
+            "isSubscribed": false,
+            "employeeSize": null,
+            "fundingAmount": null,
+            "wasInYCombinator": false,
+            "postsCount": 23,
+            "firstPost": {
+              "id": "33591",
+              "createdAt": "2015-09-13T17:53:06-07:00",
+              "__typename": "Post"
+            },
+            "discussionForum": {
+              "id": "49857",
+              "path": "/p/notion",
+              "__typename": "DiscussionForumType",
+              "firstThread": {
+                "edges": [
+                  {
+                    "node": {
+                      "id": "644550",
+                      "__typename": "DiscussionForumAssociationType"
+                    },
+                    "__typename": "DiscussionForumAssociationTypeEdge"
+                  }
+                ],
+                "__typename": "DiscussionForumAssociationTypeConnectionWithCount"
+              }
+            },
+            "alternatives": {
+              "edges": [
+                {
+                  "node": {
+                    "id": "410185",
+                    "product": {
+                      "id": "410185",
+                      "slug": "fibery",
+                      "name": "Fibery",
+                      "tagline": "Your company's operating system",
+                      "reviewsRating": 4.95,
+                      "reviewsCount": 37,
+                      "logoUuid": "34eda7f9-aea3-46dc-a265-e5dcd2c90b51.png",
+                      "isNoLongerOnline": false,
+                      "__typename": "Product",
+                      "categories": [
+                        {
+                          "id": "36",
+                          "name": "Project management software",
+                          "slug": "project-management",
+                          "path": "/categories/project-management",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "43",
+                          "name": "Knowledge base software",
+                          "slug": "knowledge-base",
+                          "path": "/categories/knowledge-base",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "1881",
+                          "name": "All-in-one Workspace",
+                          "slug": "all-in-one-workspace",
+                          "path": "/categories/all-in-one-workspace",
+                          "__typename": "ProductCategory"
+                        }
+                      ]
+                    },
+                    "__typename": "ProductAlternative"
+                  },
+                  "__typename": "ProductAlternativeEdge"
+                },
+                {
+                  "node": {
+                    "id": "577620",
+                    "product": {
+                      "id": "577620",
+                      "slug": "matilda-workspace",
+                      "name": "Matilda Workspace ",
+                      "tagline": "All New All-In-One Workspace: Projects, Docs, Tables, Chat..",
+                      "reviewsRating": 5,
+                      "reviewsCount": 2,
+                      "logoUuid": "9bb8b219-11d6-4692-91e7-7c42f0047a9b.jpeg",
+                      "isNoLongerOnline": false,
+                      "__typename": "Product",
+                      "categories": [
+                        {
+                          "id": "35",
+                          "name": "Note and writing apps",
+                          "slug": "notes-documents",
+                          "path": "/categories/notes-documents",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "36",
+                          "name": "Project management software",
+                          "slug": "project-management",
+                          "path": "/categories/project-management",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "37",
+                          "name": "Team collaboration software",
+                          "slug": "team-collaboration",
+                          "path": "/categories/team-collaboration",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "1881",
+                          "name": "All-in-one Workspace",
+                          "slug": "all-in-one-workspace",
+                          "path": "/categories/all-in-one-workspace",
+                          "__typename": "ProductCategory"
+                        }
+                      ]
+                    },
+                    "__typename": "ProductAlternative"
+                  },
+                  "__typename": "ProductAlternativeEdge"
+                },
+                {
+                  "node": {
+                    "id": "537930",
+                    "product": {
+                      "id": "537930",
+                      "slug": "superthread-tasks-docs-together",
+                      "name": "Superthread",
+                      "tagline": "Project management tool with integrated tasks, notes & docs.",
+                      "reviewsRating": 5,
+                      "reviewsCount": 2,
+                      "logoUuid": "f6804265-7fa2-4019-aebf-a8ccb644bc70.png",
+                      "isNoLongerOnline": false,
+                      "__typename": "Product",
+                      "categories": [
+                        {
+                          "id": "35",
+                          "name": "Note and writing apps",
+                          "slug": "notes-documents",
+                          "path": "/categories/notes-documents",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "36",
+                          "name": "Project management software",
+                          "slug": "project-management",
+                          "path": "/categories/project-management",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "37",
+                          "name": "Team collaboration software",
+                          "slug": "team-collaboration",
+                          "path": "/categories/team-collaboration",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "43",
+                          "name": "Knowledge base software",
+                          "slug": "knowledge-base",
+                          "path": "/categories/knowledge-base",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "80",
+                          "name": "Issue tracking software",
+                          "slug": "issue-tracking-software",
+                          "path": "/categories/issue-tracking-software",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "1881",
+                          "name": "All-in-one Workspace",
+                          "slug": "all-in-one-workspace",
+                          "path": "/categories/all-in-one-workspace",
+                          "__typename": "ProductCategory"
+                        }
+                      ]
+                    },
+                    "__typename": "ProductAlternative"
+                  },
+                  "__typename": "ProductAlternativeEdge"
+                },
+                {
+                  "node": {
+                    "id": "547973",
+                    "product": {
+                      "id": "547973",
+                      "slug": "superlist",
+                      "name": "Superlist",
+                      "tagline": "Home to all your lists",
+                      "reviewsRating": 4.55,
+                      "reviewsCount": 29,
+                      "logoUuid": "f07b6f11-52a2-445c-a223-03cf39318699.png",
+                      "isNoLongerOnline": false,
+                      "__typename": "Product",
+                      "categories": [
+                        {
+                          "id": "35",
+                          "name": "Note and writing apps",
+                          "slug": "notes-documents",
+                          "path": "/categories/notes-documents",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "36",
+                          "name": "Project management software",
+                          "slug": "project-management",
+                          "path": "/categories/project-management",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "37",
+                          "name": "Team collaboration software",
+                          "slug": "team-collaboration",
+                          "path": "/categories/team-collaboration",
+                          "__typename": "ProductCategory"
+                        }
+                      ]
+                    },
+                    "__typename": "ProductAlternative"
+                  },
+                  "__typename": "ProductAlternativeEdge"
+                },
+                {
+                  "node": {
+                    "id": "112736",
+                    "product": {
+                      "id": "112736",
+                      "slug": "craft-do",
+                      "name": "Craft.do",
+                      "tagline": "Your space for notes, tasks, and big ideas",
+                      "reviewsRating": 4.58,
+                      "reviewsCount": 36,
+                      "logoUuid": "f311c239-8bb3-466f-b115-e7cc9228f438.png",
+                      "isNoLongerOnline": false,
+                      "__typename": "Product",
+                      "categories": [
+                        {
+                          "id": "34",
+                          "name": "Productivity",
+                          "slug": "productivity",
+                          "path": "/categories/productivity",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "35",
+                          "name": "Note and writing apps",
+                          "slug": "notes-documents",
+                          "path": "/categories/notes-documents",
+                          "__typename": "ProductCategory"
+                        },
+                        {
+                          "id": "37",
+                          "name": "Team collaboration software",
+                          "slug": "team-collaboration",
+                          "path": "/categories/team-collaboration",
+                          "__typename": "ProductCategory"
+                        }
+                      ]
+                    },
+                    "__typename": "ProductAlternative"
+                  },
+                  "__typename": "ProductAlternativeEdge"
+                }
+              ],
+              "totalCount": 50,
+              "__typename": "ProductAlternativeConnection"
+            },
+            "description": "Notion is an all-in-one workspace that combines note-taking, project management, and task organization. It allows users to create customized databases, documents, and calendars to streamline their personal and professional workflows.",
+            "reviewsCount": 1307,
+            "founderDetailedReviewsCount": 811,
+            "firstLaunch": false,
+            "orbitAwardBadges": {
+              "edges": [],
+              "__typename": "OrbitAwardBadgeConnection"
+            },
+            "categories": [
+              {
+                "id": "35",
+                "name": "Note and writing apps",
+                "slug": "notes-documents",
+                "path": "/categories/notes-documents",
+                "__typename": "ProductCategory"
+              },
+              {
+                "id": "36",
+                "name": "Project management software",
+                "slug": "project-management",
+                "path": "/categories/project-management",
+                "__typename": "ProductCategory"
+              },
+              {
+                "id": "74",
+                "name": "No-code Platforms",
+                "slug": "no-code-platforms",
+                "path": "/categories/no-code-platforms",
+                "__typename": "ProductCategory"
+              },
+              {
+                "id": "1288",
+                "name": "AI notetakers",
+                "slug": "ai-meeting-notetakers",
+                "path": "/categories/ai-meeting-notetakers",
+                "__typename": "ProductCategory"
+              },
+              {
+                "id": "1809",
+                "name": "No-Code App Builder",
+                "slug": "no-code-app-builder",
+                "path": "/categories/no-code-app-builder",
+                "__typename": "ProductCategory"
+              },
+              {
+                "id": "1881",
+                "name": "All-in-one Workspace",
+                "slug": "all-in-one-workspace",
+                "path": "/categories/all-in-one-workspace",
+                "__typename": "ProductCategory"
+              }
+            ],
+            "logoUuid": "ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png",
+            "isNoLongerOnline": false,
+            "isMaker": false,
+            "reviewsRating": 4.83,
+            "proConTags": [
+              {
+                "id": "2291",
+                "name": "all-in-one workspace",
+                "type": "Positive",
+                "count": 198,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "1529",
+                "name": "flexible customization",
+                "type": "Positive",
+                "count": 99,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "454",
+                "name": "project management",
+                "type": "Positive",
+                "count": 99,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "88",
+                "name": "team collaboration",
+                "type": "Positive",
+                "count": 95,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "118",
+                "name": "note-taking",
+                "type": "Positive",
+                "count": 81,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "121",
+                "name": "task management",
+                "type": "Positive",
+                "count": 53,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "632",
+                "name": "knowledge management",
+                "type": "Positive",
+                "count": 45,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2293",
+                "name": "database functionality",
+                "type": "Positive",
+                "count": 42,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "888",
+                "name": "clean interface",
+                "type": "Positive",
+                "count": 39,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2297",
+                "name": "productivity",
+                "type": "Positive",
+                "count": 25,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "461",
+                "name": "steep learning curve",
+                "type": "Negative",
+                "count": 22,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "23",
+                "name": "slow performance",
+                "type": "Negative",
+                "count": 21,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2290",
+                "name": "extensive templates",
+                "type": "Positive",
+                "count": 17,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "508",
+                "name": "integration with other tools",
+                "type": "Positive",
+                "count": 14,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2295",
+                "name": "overwhelming features",
+                "type": "Negative",
+                "count": 14,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "398",
+                "name": "real-time collaboration",
+                "type": "Positive",
+                "count": 12,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2296",
+                "name": "complex UI",
+                "type": "Negative",
+                "count": 7,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "698",
+                "name": "intuitive design",
+                "type": "Positive",
+                "count": 5,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2215",
+                "name": "efficient workflow",
+                "type": "Positive",
+                "count": 4,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2292",
+                "name": "lack of offline mode",
+                "type": "Negative",
+                "count": 4,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2294",
+                "name": "integration with other tools",
+                "type": "Negative",
+                "count": 3,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "757",
+                "name": "productivity boost",
+                "type": "Positive",
+                "count": 3,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "872",
+                "name": "cross-device sync",
+                "type": "Positive",
+                "count": 2,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "31139",
+                "name": "add more emojis",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "43641",
+                "name": "ai accuracy issues",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "30523",
+                "name": "database functionality",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "23196",
+                "name": "inaccurate table recognition",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2298",
+                "name": "intuitive design",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "7289",
+                "name": "latency issues",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "43640",
+                "name": "notion ai",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "45737",
+                "name": "offline functionality",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "499",
+                "name": "real-time analytics",
+                "type": "Positive",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2543",
+                "name": "table formatting limitations",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "2299",
+                "name": "task management",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              },
+              {
+                "id": "838",
+                "name": "user-friendly interface",
+                "type": "Negative",
+                "count": 1,
+                "__typename": "ReviewAiProConTag"
+              }
+            ],
+            "reviewQuestions": [
+              {
+                "id": "245",
+                "category": "Adoption",
+                "question": "How well does Notion replace separate notes and tasks apps?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "246",
+                "category": "Speed & UX",
+                "question": "Is performance slow with large databases or many pages?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "247",
+                "category": "Offline",
+                "question": "How reliable is offline access across devices?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "248",
+                "category": "Collaboration",
+                "question": "Does real-time collaboration feel responsive for distributed teams?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "249",
+                "category": "Onboarding",
+                "question": "How steep was the learning curve for your team?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "250",
+                "category": "Templates",
+                "question": "Which templates actually saved you time?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "251",
+                "category": "Databases",
+                "question": "How powerful are custom databases for project tracking?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "252",
+                "category": "Project Management",
+                "question": "Is timeline view useful for roadmaps and deadlines?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "253",
+                "category": "AI Assistant",
+                "question": "Does the AI writing assistant improve clarity and speed?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "254",
+                "category": "Integrations",
+                "question": "How well does Notion integrate with your existing tools?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "255",
+                "category": "Website Publishing",
+                "question": "Have you published pages as a website successfully?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "256",
+                "category": "Admin & Security",
+                "question": "Are permissions and access controls easy to manage?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "257",
+                "category": "Reliability",
+                "question": "Does cross-device sync ever cause conflicts or data loss?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "258",
+                "category": "Knowledge Management",
+                "question": "Can Notion handle complex team knowledge bases?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "259",
+                "category": "Ease of Use",
+                "question": "Is the interface intuitive for non-technical users?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "260",
+                "category": "Task Management",
+                "question": "How do you manage tasks and recurring to-dos?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "261",
+                "category": "Advanced Features",
+                "question": "What limitations did you hit with database formulas?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "262",
+                "category": "Calendars",
+                "question": "Does Notion replace your calendar, or just complement it?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "263",
+                "category": "Cost",
+                "question": "How does pricing scale as your team grows?",
+                "__typename": "ReviewQuestion"
+              },
+              {
+                "id": "264",
+                "category": "UX Friction",
+                "question": "What features felt overwhelming or unnecessary?",
+                "__typename": "ReviewQuestion"
+              }
+            ],
+            "detailedReview": null,
+            "hasPotentialAlternatives": true,
+            "badges": {
+              "totalCount": 52,
+              "__typename": "Connection"
+            },
+            "posts": {
+              "totalCount": 23,
+              "__typename": "PostConnection"
+            },
+            "customers": {
+              "totalCount": 414,
+              "__typename": "DetailedReviewConnection"
+            },
+            "authoredDetailedReviews": {
+              "totalCount": 0,
+              "__typename": "DetailedReviewConnection"
+            },
+            "categoriesCount": 8,
+            "addonsCount": 35,
+            "isMuted": false,
+            "upcomingLaunch": null,
+            "structuredData": {
+              "@context": "http://schema.org",
+              "@id": "https://www.producthunt.com/products/notion",
+              "@type": [
+                "WebApplication",
+                "Product"
+              ],
+              "url": "https://www.producthunt.com/products/notion",
+              "name": "Notion",
+              "description": "Notion is an all-in-one workspace that combines note-taking, project management, and task organization. It allows users to create customized databases, documents, and calendars to streamline their personal and professional workflows.",
+              "datePublished": "2020-02-20T18:53:57.194-08:00",
+              "dateModified": "2026-02-25T20:23:26.640-08:00",
+              "image": "https://ph-files.imgix.net/ff3e2acf-884a-4f4c-a383-6edfe3de0d88.png?auto=format",
+              "screenshot": [
+                "https://ph-files.imgix.net/6a8f48a7-77f9-406e-9b73-79108150f9e1.png?auto=format&fit=crop",
+                "https://ph-files.imgix.net/a9e7425a-7510-46a8-a663-d3b858590075.png?auto=format&fit=crop",
+                "https://ph-files.imgix.net/c676fe01-ca21-42f4-9873-fb5b561e94a9.gif?auto=format&fit=crop"
+              ],
+              "aggregateRating": {
+                "@type": "AggregateRating",
+                "ratingCount": 1307,
+                "ratingValue": "4.83",
+                "worstRating": 1,
+                "bestRating": 5
+              },
+              "operatingSystem": "Web",
+              "offers": {
+                "@type": "Offer",
+                "price": 0,
+                "priceCurrency": "USD"
+              },
+              "applicationCategory": "Productivity",
+              "author": [
+                {
+                  "@type": "Person",
+                  "name": "Alicia Liu",
+                  "image": "https://ph-avatars.imgix.net/27953/original.jpeg?auto=format&crop=faces&fit=crop&h=100&w=100",
+                  "url": "https://www.producthunt.com/@aliciatweet"
+                },
+                {
+                  "@type": "Person",
+                  "name": "Jake Teton-Landis",
+                  "image": "https://ph-avatars.imgix.net/3405973/original.jpeg?auto=format&crop=faces&fit=crop&h=100&w=100",
+                  "url": "https://www.producthunt.com/@jitl"
+                },
+                {
+                  "@type": "Person",
+                  "name": "ByeongChan Lee",
+                  "image": "https://ph-avatars.imgix.net/1630761/original.png?auto=format&crop=faces&fit=crop&h=100&w=100",
+                  "url": "https://www.producthunt.com/@byeongchan_lee"
+                }
+              ]
+            }
+          }
+        }
+      }
+    ]
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": {
+      "data": {
+        "response": {
+          "clientMutationId": null,
+          "__typename": "AdsInteractionCreatePayload"
+        }
+      }
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": {
+      "data": {
+        "response": {
+          "clientMutationId": null,
+          "__typename": "AdsInteractionCreatePayload"
+        }
+      }
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": {
+      "data": {
+        "response": {
+          "clientMutationId": null,
+          "__typename": "AdsInteractionCreatePayload"
+        }
+      }
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": {
+      "data": {
+        "response": {
+          "clientMutationId": null,
+          "__typename": "AdsInteractionCreatePayload"
+        }
+      }
+    }
+  },
+  {
+    "url": "https://www.producthunt.com/frontend/graphql",
+    "json": {
+      "data": {
+        "response": {
+          "clientMutationId": null,
+          "__typename": "AdsInteractionCreatePayload"
+        }
+      }
+    }
+  }
+]

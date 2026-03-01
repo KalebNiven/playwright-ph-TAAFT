@@ -51,7 +51,10 @@ async function scrape() {
   console.log(`Found ${items.length} items released within the last 24 hours.`);
 
   const now = new Date();
-  const dateStr = now.toISOString().split('T')[0];
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, '0');
+  const day = String(now.getDate()).padStart(2, '0');
+  const dateStr = `${year}-${month}-${day}`;
 
   // Build Excel output
   const workbook = new ExcelJS.Workbook();

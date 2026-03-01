@@ -1,194 +1,364 @@
-const { chromium } = require('playwright');
-const ExcelJS = require('exceljs');
-const path = require('path');
-const fs = require('fs');
+const { chromium } = require("playwright");
+const ExcelJS = require("exceljs");
+const path = require("path");
+const fs = require("fs");
 
-const PH_URL = 'https://www.producthunt.com';
-const OUTPUT_DIR = path.join(__dirname, 'output');
-
-async function scrape() {
-  const userDataDir = path.join(__dirname, '.chrome-profile');
-  const context = await chromium.launchPersistentContext(userDataDir, {
-    headless: false,
-    channel: 'chrome',
-    args: [
-      '--disable-blink-features=AutomationControlled',
-      '--no-first-run',
-      '--no-default-browser-check',
-    ],
-  });
-  const page = context.pages()[0] || (await context.newPage());
-
-  console.log('Navigating to', PH_URL);
-  await page.goto(PH_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-
-  // Wait for Cloudflare challenge to resolve and products to load
-  console.log('Waiting for Cloudflare challenge to resolve...');
-  await page.waitForSelector('section a[href*="/products/"]', { timeout: 60000 });
-  console.log('Page loaded, extracting products...');
-
-  const products = await page.evaluate(() => {
-    const results = [];
-
-    // Find the "Top Products Launching Today" heading and its parent container
-    const heading = document.querySelector('h1');
-    if (!heading) return results;
-    const container = heading.parentElement;
-    if (!container) return results;
-
-    for (const section of container.children) {
-      if (section.tagName !== 'SECTION') continue;
-      const nameLink = section.querySelector('a[href*="/products/"]');
-      if (!nameLink) continue;
-
-      // Name (strip rank prefix like "1. ")
-      const rawName = nameLink.textContent.trim();
-      // Only include items with a rank prefix ("1. Name", "2. Name", etc.)
-      if (!/^\d+\.\s/.test(rawName)) continue;
-      const name = rawName.replace(/^\d+\.\s*/, '');
-
-      // PH product URL
-      const phPath = nameLink.getAttribute('href');
-      const phUrl = 'https://www.producthunt.com' + phPath;
-
-      // Tagline
-      const taglineEl = section.querySelector('span.text-secondary');
-      const tagline = taglineEl?.textContent?.trim() || '';
-
-      // Topics
-      const topicLinks = section.querySelectorAll('a[href*="/topics/"]');
-      const topics = Array.from(topicLinks).map((a) => a.textContent.trim());
-
-      // Buttons: first = comments, second = upvotes
-      const buttons = section.querySelectorAll('button');
-      const comments = parseInt(buttons[0]?.textContent?.trim()) || 0;
-      const upvotes = parseInt(buttons[1]?.textContent?.trim()) || 0;
-
-      results.push({ name, tagline, upvotes, comments, topics: topics.join(', '), phUrl });
-    }
-
-    return results;
-  });
-
-  console.log(`Found ${products.length} products launched today.`);
-
-  // Resolve external website links by visiting each product page
-  console.log('Resolving external website links...');
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    try {
-      await page.goto(p.phUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
-      const website = await page.evaluate(() => {
-        // Look for the "Visit" or external website link on the product page
-        const visitLink = document.querySelector('a[href*="?ref=producthunt"]');
-        if (visitLink) return visitLink.href;
-        // Fallback: any external link in the main content
-        const links = document.querySelectorAll('a[target="_blank"]');
-        for (const link of links) {
-          const href = link.href;
-          if (href && !href.includes('producthunt.com') && href.startsWith('http')) {
-            return href;
-          }
-        }
-        return '';
-      });
-
-      // Clean UTM params
-      let cleanUrl = website;
-      try {
-        const u = new URL(website);
-        u.searchParams.delete('ref');
-        u.searchParams.delete('utm_source');
-        u.searchParams.delete('utm_medium');
-        u.searchParams.delete('utm_campaign');
-        cleanUrl = u.toString();
-        if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
-      } catch {}
-
-      products[i].website = cleanUrl;
-      process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → ${cleanUrl || 'no link'}\n`);
-    } catch {
-      products[i].website = '';
-      process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → failed\n`);
-    }
-  }
-
-  await context.close();
-
-  // Build Excel output
+// Function to get local date parts
+function getLocalDate() {
   const now = new Date();
-  const dateStr = now.toISOString().split('T')[0];
-
-  const workbook = new ExcelJS.Workbook();
-  const sheet = workbook.addWorksheet('Product Hunt Launches');
-
-  sheet.columns = [
-    { header: '#', key: 'rank', width: 5 },
-    { header: 'Name', key: 'name', width: 25 },
-    { header: 'Tagline', key: 'tagline', width: 50 },
-    { header: 'Upvotes', key: 'upvotes', width: 10 },
-    { header: 'Comments', key: 'comments', width: 10 },
-    { header: 'Topics', key: 'topics', width: 35 },
-    { header: 'Website', key: 'website', width: 40 },
-    { header: 'PH Page', key: 'phUrl', width: 40 },
-  ];
-
-  // Style header row
-  sheet.getRow(1).fill = {
-    type: 'pattern',
-    pattern: 'solid',
-    fgColor: { argb: 'FFDA552F' }, // PH orange
+  return {
+    year: now.getFullYear(),
+    month: now.getMonth() + 1,
+    day: now.getDate(),
   };
-  sheet.getRow(1).font = { bold: true, color: { argb: 'FFFFFFFF' } };
-
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    const row = sheet.addRow({
-      rank: i + 1,
-      name: p.name,
-      tagline: p.tagline,
-      upvotes: p.upvotes,
-      comments: p.comments,
-      topics: p.topics,
-      website: p.website || '',
-      phUrl: p.phUrl,
-    });
-
-    // Make links clickable
-    if (p.website) {
-      row.getCell('website').value = { text: p.website, hyperlink: p.website };
-      row.getCell('website').font = { color: { argb: 'FF0563C1' }, underline: true };
-    }
-    row.getCell('phUrl').value = { text: p.phUrl, hyperlink: p.phUrl };
-    row.getCell('phUrl').font = { color: { argb: 'FF0563C1' }, underline: true };
-  }
-
-  // Ensure output directory exists
-  if (!fs.existsSync(OUTPUT_DIR)) {
-    fs.mkdirSync(OUTPUT_DIR, { recursive: true });
-  }
-
-  const xlsxFile = path.join(OUTPUT_DIR, `producthunt-${dateStr}.xlsx`);
-  await workbook.xlsx.writeFile(xlsxFile);
-  console.log(`\nExcel written to ${xlsxFile}`);
-
-  // Build Markdown output
-  let md = `# Product Hunt — Top Launches ${dateStr}\n\n`;
-  md += `> Scraped at ${now.toISOString()} — ${products.length} products\n\n`;
-  md += `| # | Name | Tagline | Upvotes | Comments | Topics | Website | PH Page |\n`;
-  md += `| --- | --- | --- | --- | --- | --- | --- | --- |\n`;
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    const esc = (s) => (s || '').replace(/\|/g, '\\|');
-    md += `| ${i + 1} | ${esc(p.name)} | ${esc(p.tagline)} | ${p.upvotes} | ${p.comments} | ${esc(p.topics)} | ${p.website || ''} | ${p.phUrl} |\n`;
-  }
-
-  const mdFile = path.join(OUTPUT_DIR, `producthunt-${dateStr}.md`);
-  fs.writeFileSync(mdFile, md, 'utf-8');
-  console.log(`Markdown written to ${mdFile}`);
 }
 
-scrape().catch((err) => {
-  console.error('Scraper failed:', err);
-  process.exit(1);
-});
+// Parse command line argument or default to today
+let targetYear, targetMonth, targetDay;
+const arg = process.argv[2];
+
+if (arg) {
+  // Try parsing URL: .../daily/YYYY/M/D...
+  const urlMatch = arg.match(/daily\/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+  if (urlMatch) {
+    [, targetYear, targetMonth, targetDay] = urlMatch.map(Number);
+    console.log(
+      `Using date from URL: ${targetYear}-${targetMonth}-${targetDay}`,
+    );
+  } else {
+    // Try parsing date string: YYYY-MM-DD or YYYY/MM/DD
+    const dateMatch = arg.match(/(\d{4})[-/](\d{1,2})[-/](\d{1,2})/);
+    if (dateMatch) {
+      [, targetYear, targetMonth, targetDay] = dateMatch.map(Number);
+      console.log(
+        `Using date from argument: ${targetYear}-${targetMonth}-${targetDay}`,
+      );
+    } else {
+      console.log("Invalid format. Defaulting to 2026-02-25 (Target Date).");
+      targetYear = 2026;
+      targetMonth = 2;
+      targetDay = 25;
+    }
+  }
+} else {
+  console.log("No date provided. Defaulting to 2026-02-25 (Target Date).");
+  targetYear = 2026;
+  targetMonth = 2;
+  targetDay = 25;
+}
+
+const PH_URL = `https://www.producthunt.com/leaderboard/daily/${targetYear}/${targetMonth}/${targetDay}/all`;
+const OUTPUT_DIR = path.join(__dirname, "output");
+
+// Helper to resolve redirects using a page instance
+async function resolveRedirectWithPage(page, shortPath) {
+  if (!shortPath) return "";
+  const fullUrl = `https://www.producthunt.com${shortPath}`;
+  try {
+    // Navigate and wait for redirect
+    // We use domcontentloaded which is usually enough after a redirect
+    await page.goto(fullUrl, { waitUntil: "domcontentloaded", timeout: 15000 });
+    const finalUrl = page.url();
+    
+    // Check if we are still on producthunt (failed redirect or internal page)
+    // If it's a /posts/ page, then it wasn't a redirect link or it failed
+    if (finalUrl.includes("producthunt.com/posts/") || finalUrl.includes("producthunt.com/products/")) {
+        // If we were trying to resolve a /r/p/ link and ended up on a post page, 
+        // it might mean the redirect failed or requires clicking "Visit"
+        // But usually /r/p/ redirects to external.
+        // If shortPath was /posts/..., then we are on the post page.
+        return finalUrl;
+    }
+
+    // Clean URL
+    try {
+        const urlObj = new URL(finalUrl);
+        urlObj.searchParams.delete("ref");
+        urlObj.searchParams.delete("utm_source");
+        urlObj.searchParams.delete("utm_medium");
+        urlObj.searchParams.delete("utm_campaign");
+        // Remove trailing slash
+        let clean = urlObj.toString();
+        if (clean.endsWith("/")) clean = clean.slice(0, -1);
+        return clean;
+    } catch (e) {
+        return finalUrl;
+    }
+  } catch (e) {
+    // console.error(`Failed to resolve ${shortPath}: ${e.message}`);
+    return fullUrl;
+  }
+}
+
+async function scrape() {
+  const userDataDir = path.join(__dirname, ".chrome-profile");
+  const context = await chromium.launchPersistentContext(userDataDir, {
+    headless: false,
+    channel: "chrome",
+    ignoreHTTPSErrors: true,
+    args: [
+      "--disable-blink-features=AutomationControlled",
+      "--no-first-run",
+      "--no-default-browser-check",
+    ],
+  });
+
+  const page = context.pages()[0] || (await context.newPage());
+  console.log(`Navigating to ${PH_URL}...`);
+
+  const capturedProducts = new Map(); // ID -> product data
+  const orderedIds = new Set(); // Preserves visual order
+
+  // Intercept GraphQL responses to capture product data
+  page.on("response", async (response) => {
+    const url = response.url();
+    if (url.includes("graphql")) {
+      try {
+        const json = await response.json();
+        if (
+          json.data &&
+          json.data.homefeedItems &&
+          json.data.homefeedItems.edges
+        ) {
+          const items = json.data.homefeedItems.edges;
+          process.stdout.write(`+${items.length} `);
+          items.forEach((edge) => {
+            if (edge.node && edge.node.id) {
+              capturedProducts.set(edge.node.id, edge.node);
+            }
+          });
+        }
+      } catch (e) {
+        // ignore
+      }
+    }
+  });
+
+  try {
+    await page.goto(PH_URL, { waitUntil: "domcontentloaded", timeout: 60000 });
+    await page.waitForTimeout(5000);
+
+    // Extract initial data from Apollo SSR script
+    console.log("Extracting initial data from page source...");
+    const scriptContent = await page.evaluate(() => {
+      const scripts = Array.from(document.querySelectorAll("script"));
+      for (const s of scripts) {
+        if (s.innerHTML.includes("ApolloSSRDataTransport")) {
+          return s.innerHTML;
+        }
+      }
+      return null;
+    });
+
+    if (scriptContent) {
+      const match = scriptContent.match(/\.push\((\{.*\})\)/);
+      if (match && match[1]) {
+        try {
+          const cleanJsonStr = match[1].replace(/:undefined/g, ":null");
+          const json = JSON.parse(cleanJsonStr);
+
+          const traverse = (obj) => {
+            if (!obj || typeof obj !== "object") return;
+            if (obj.__typename === "Post" && obj.id) {
+              capturedProducts.set(obj.id, obj);
+            }
+            Object.values(obj).forEach((value) => {
+              if (Array.isArray(value)) {
+                value.forEach((item) => traverse(item));
+              } else if (typeof value === "object") {
+                traverse(value);
+              }
+            });
+          };
+          traverse(json);
+          console.log(`Extracted products from SSR state.`);
+        } catch (e) {
+          console.error("Failed to parse SSR JSON:", e.message);
+        }
+      }
+    }
+
+    console.log("Starting infinite scroll to capture visual order...");
+
+    let lastHeight = await page.evaluate(() => document.body.scrollHeight);
+    let scrollCount = 0;
+    const maxScrolls = 100;
+    let noChangeCount = 0;
+
+    // Helper to scrape visible IDs
+    const scrapeVisibleIds = async () => {
+      const items = await page.evaluate(() => {
+        // Find all product links
+        const anchors = Array.from(
+          document.querySelectorAll(
+            'main a[href^="/posts/"], main a[href^="/products/"]',
+          ),
+        );
+        return anchors
+          .map((a) => {
+            // Look for ID in parent hierarchy
+            let el = a;
+            let id = null;
+            while (el && el !== document.body) {
+              const testId = el.getAttribute("data-test");
+              if (testId && testId.startsWith("post-name-")) {
+                id = testId.replace("post-name-", "");
+                break;
+              }
+              el = el.parentElement;
+            }
+            return { id, href: a.getAttribute("href"), text: a.innerText };
+          })
+          .filter((item) => item.id !== null);
+      });
+      return items;
+    };
+
+    while (scrollCount < maxScrolls) {
+      // Capture visible IDs BEFORE scrolling further
+      const currentItems = await scrapeVisibleIds();
+      currentItems.forEach((item) => orderedIds.add(item.id));
+
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await page.waitForTimeout(2000);
+
+      let newHeight = await page.evaluate(() => document.body.scrollHeight);
+
+      if (newHeight === lastHeight) {
+        noChangeCount++;
+        const showMore = await page.$('button:has-text("Show more")');
+        if (showMore) {
+          console.log('\nFound "Show more" button, clicking...');
+          await showMore.click();
+          await page.waitForTimeout(3000);
+          newHeight = await page.evaluate(() => document.body.scrollHeight);
+          noChangeCount = 0;
+        } else {
+          if (noChangeCount > 2) {
+            console.log("\nReached bottom or no new content loaded.");
+            break;
+          }
+          await page.evaluate(() => window.scrollBy(0, -500));
+          await page.waitForTimeout(500);
+          await page.evaluate(() =>
+            window.scrollTo(0, document.body.scrollHeight),
+          );
+          await page.waitForTimeout(2000);
+        }
+      } else {
+        noChangeCount = 0;
+      }
+
+      lastHeight = newHeight;
+      scrollCount++;
+      process.stdout.write(".");
+    }
+
+    // Final capture
+    const finalItems = await scrapeVisibleIds();
+    finalItems.forEach((item) => orderedIds.add(item.id));
+
+    console.log(`\nTotal unique ordered products: ${orderedIds.size}`);
+    console.log(`Total captured data points: ${capturedProducts.size}`);
+
+    // Build final list in order
+    const productList = [];
+    for (const id of orderedIds) {
+      const data = capturedProducts.get(id);
+      if (data) {
+        productList.push(data);
+      } else {
+        productList.push({
+          name: `Unknown Product ${id}`,
+          id: id,
+          shortenedUrl: `/posts/${id}`, // fallback
+          votesCount: 0,
+          tagline: "Data missing - check manual",
+        });
+      }
+    }
+
+    // Resolve redirects using a pool of pages
+    console.log("Resolving external websites (using page navigation)...");
+    
+    const CONCURRENCY = 5;
+    const workerPages = [];
+    for (let i = 0; i < CONCURRENCY; i++) {
+        workerPages.push(await context.newPage());
+    }
+
+    const resolvedProducts = new Array(productList.length);
+    let currentIndex = 0;
+
+    // Worker function
+    const worker = async (pageInstance) => {
+        while (currentIndex < productList.length) {
+            const index = currentIndex++;
+            const p = productList[index];
+            
+            // Only resolve if it looks like a redirect link (/r/p/)
+            // If it's a post link, we might want to skip or try to find the "Visit" button?
+            // Actually, if we only have /posts/..., we can't easily resolve without parsing the post page.
+            // But let's try to resolve whatever shortenedUrl we have.
+            
+            let website = p.shortenedUrl ? `https://www.producthunt.com${p.shortenedUrl}` : "";
+            
+            if (p.shortenedUrl && p.shortenedUrl.startsWith("/r/p/")) {
+                process.stdout.write(`R`); // R for Resolving
+                website = await resolveRedirectWithPage(pageInstance, p.shortenedUrl);
+            } else {
+                process.stdout.write(`.`); // . for Skipping/Already resolved
+                // If it's not a redirect link, check if we have 'website' in data?
+                if (p.website) website = p.website;
+            }
+
+            resolvedProducts[index] = {
+              name: p.name,
+              tagline: p.tagline,
+              upvotes: p.votesCount || p.latestScore || 0,
+              website: website,
+            };
+        }
+    };
+
+    // Run workers
+    await Promise.all(workerPages.map(p => worker(p)));
+    
+    // Close worker pages
+    for (const p of workerPages) {
+        await p.close();
+    }
+    
+    console.log("\nResolution complete.");
+
+    // Save to Excel
+    if (!fs.existsSync(OUTPUT_DIR)) {
+      fs.mkdirSync(OUTPUT_DIR, { recursive: true });
+    }
+
+    const dateStr = `${targetYear}-${String(targetMonth).padStart(2, "0")}-${String(targetDay).padStart(2, "0")}`;
+    const filename = `ProductHunt_Leaderboard_${dateStr}.xlsx`;
+    const filepath = path.join(OUTPUT_DIR, filename);
+
+    const workbook = new ExcelJS.Workbook();
+    const worksheet = workbook.addWorksheet("Products");
+
+    worksheet.columns = [
+      { header: "Name", key: "name", width: 30 },
+      { header: "Tagline", key: "tagline", width: 50 },
+      { header: "Upvotes", key: "upvotes", width: 15 },
+      { header: "Website", key: "website", width: 50 },
+    ];
+
+    worksheet.addRows(resolvedProducts);
+
+    await workbook.xlsx.writeFile(filepath);
+    console.log(`Saved ${resolvedProducts.length} products to ${filepath}`);
+  } catch (error) {
+    console.error("Error during scraping:", error);
+  } finally {
+    await context.close();
+  }
+}
+
+scrape();
