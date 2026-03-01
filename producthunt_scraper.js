@@ -3,7 +3,26 @@ const ExcelJS = require('exceljs');
 const path = require('path');
 const fs = require('fs');
 
-const PH_URL = 'https://www.producthunt.com';
+// Clean tracking params from a URL
+function cleanWebsiteUrl(rawUrl) {
+  if (!rawUrl) return '';
+  try {
+    const u = new URL(rawUrl);
+    u.searchParams.delete('ref');
+    u.searchParams.delete('utm_source');
+    u.searchParams.delete('utm_medium');
+    u.searchParams.delete('utm_campaign');
+    let cleaned = u.toString();
+    if (cleaned.endsWith('?')) cleaned = cleaned.slice(0, -1);
+    return cleaned;
+  } catch {
+    return rawUrl;
+  }
+}
+
+
+const PH_URL = process.argv[2] || 'https://www.producthunt.com';
+const IS_LEADERBOARD = PH_URL.includes('/leaderboard/');
 const OUTPUT_DIR = path.join(__dirname, 'output');
 
 async function scrape() {
@@ -19,12 +38,12 @@ async function scrape() {
   });
   const page = context.pages()[0] || (await context.newPage());
 
-  console.log('Navigating to', PH_URL);
+  console.log(`Navigating to ${PH_URL}${IS_LEADERBOARD ? ' (leaderboard)' : ' (homepage)'}`);
   await page.goto(PH_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
 
   // Wait for Cloudflare challenge to resolve and products to load
   console.log('Waiting for Cloudflare challenge to resolve...');
-  await page.waitForSelector('section a[href*="/products/"]', { timeout: 60000 });
+  await page.waitForSelector('a[href*="/products/"]', { timeout: 60000 });
   console.log('Page loaded, waiting for products to render...');
 
   // Give initial products time to fully render (they load slowly)
@@ -34,125 +53,223 @@ async function scrape() {
   console.log('Scrolling to load all products...');
   let previousCount = 0;
   let stableRounds = 0;
-  const MAX_STABLE_ROUNDS = 5; // stop after 5 rounds with no new products
+  const MAX_STABLE_ROUNDS = 10; // stop after 10 rounds with no new products
+  const SCROLL_TIMEOUT = 15 * 60 * 1000; // 15 minute safety limit
+  const scrollStart = Date.now();
+
   while (stableRounds < MAX_STABLE_ROUNDS) {
+    if (Date.now() - scrollStart > SCROLL_TIMEOUT) {
+      console.log('  ⏱ Scroll timeout reached (15 min). Proceeding with what we have.');
+      break;
+    }
+
     const currentCount = await page.evaluate(() => {
-      const h = document.querySelector('h1');
-      if (!h) return 0;
-      const c = h.parentElement;
-      if (!c) return 0;
-      return c.querySelectorAll('section a[href*="/products/"]').length;
+      const main = document.querySelector('main');
+      if (!main) return 0;
+      return main.querySelectorAll('a[href*="/products/"]').length;
     });
 
     if (currentCount > previousCount) {
-      console.log(`  … ${currentCount} products loaded so far`);
+      console.log(`  … ${currentCount} product links loaded so far`);
       previousCount = currentCount;
       stableRounds = 0;
     } else {
       stableRounds++;
     }
 
-    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    // Scroll the last product card into view — this keeps us near the
+    // infinite-scroll trigger zone no matter how long the page gets.
+    await page.evaluate(() => {
+      const main = document.querySelector('main');
+      if (!main) return;
+      const links = main.querySelectorAll('a[href*="/products/"]');
+      if (links.length > 0) {
+        links[links.length - 1].scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
     await page.waitForTimeout(2000);
   }
-  console.log(`Finished scrolling. Total products found: ${previousCount}`);
+
+  const elapsed = Math.round((Date.now() - scrollStart) / 1000);
+  console.log(`Finished scrolling in ${elapsed}s. Total product links found: ${previousCount}`);
 
   // Final wait to let the last batch of rows fully render
-  await page.waitForTimeout(2000);
+  await page.waitForTimeout(3000);
 
-  const products = await page.evaluate(() => {
-    const results = [];
+  let products;
 
-    // Find the "Top Products Launching Today" heading and its parent container
-    const heading = document.querySelector('h1');
-    if (!heading) return results;
-    const container = heading.parentElement;
-    if (!container) return results;
+  if (IS_LEADERBOARD) {
+    // ── Leaderboard: extract from Apollo cache (fast & reliable) ──
+    products = await page.evaluate(() => {
+      const cache = window.__APOLLO_CLIENT__?.cache?.extract?.();
+      if (!cache) return [];
+      const keys = Object.keys(cache);
+      const postKeys = keys.filter((k) => /^Post\d+$/.test(k));
+      const results = [];
+      for (const pk of postKeys) {
+        const post = cache[pk];
+        if (!post.name || !post.slug) continue;
+        const tagline =
+          post['tagline({"respectEmbargo":true})'] || post.tagline || '';
+        const upvotes = post.latestScore || 0;
+        // Construct redirect URL from post ID (cache key like "Post:1080572")
+        const postId = pk.replace(/^Post:?/, '');
+        const shortenedUrl = postId ? `/r/p/${postId}` : (post.shortenedUrl || null);
+        const phUrl = 'https://www.producthunt.com/products/' + (cache[post.product?.__ref]?.slug || post.slug);
+        results.push({ name: post.name, tagline, upvotes, shortenedUrl, phUrl });
+      }
+      // Sort by upvotes descending (leaderboard order)
+      results.sort((a, b) => b.upvotes - a.upvotes);
+      return results;
+    });
+    console.log(`Found ${products.length} products in Apollo cache.`);
+    products = products.filter((p) => p.tagline);
+    console.log(`After filtering empty taglines: ${products.length} products.`);
+  } else {
+    // ── Homepage: extract from DOM ──
+    products = await page.evaluate(() => {
+      const results = [];
+      const heading = document.querySelector('h1');
+      if (!heading) return results;
+      const container = heading.parentElement;
+      if (!container) return results;
 
-    for (const section of container.children) {
-      if (section.tagName !== 'SECTION') continue;
-      const nameLink = section.querySelector('a[href*="/products/"]');
-      if (!nameLink) continue;
+      for (const section of container.children) {
+        if (section.tagName !== 'SECTION') continue;
+        const nameLink = section.querySelector('a[href*="/products/"]');
+        if (!nameLink) continue;
 
-      // Name (strip rank prefix like "1. ")
-      const rawName = nameLink.textContent.trim();
-      // Only include items with a rank prefix ("1. Name", "2. Name", etc.)
-      if (!/^\d+\.\s/.test(rawName)) continue;
-      const name = rawName.replace(/^\d+\.\s*/, '');
+        const rawName = nameLink.textContent.trim();
+        if (!/^\d+\.\s/.test(rawName)) continue;
+        const name = rawName.replace(/^\d+\.\s*/, '');
 
-      // PH product URL
-      const phPath = nameLink.getAttribute('href');
-      const phUrl = 'https://www.producthunt.com' + phPath;
+        const phPath = nameLink.getAttribute('href');
+        const phUrl = 'https://www.producthunt.com' + phPath;
 
-      // Tagline — try multiple selectors since the page structure can vary
-      const taglineEl = section.querySelector('span.text-secondary')
-        || section.querySelector('[class*="tagline"]');
-      let tagline = taglineEl?.textContent?.trim() || '';
-      // Fallback: grab the first generic div text after the name link
-      if (!tagline) {
-        const parent = nameLink.parentElement;
-        if (parent) {
-          const divs = parent.querySelectorAll('div');
-          for (const d of divs) {
-            const t = d.textContent.trim();
-            if (t && t !== rawName && !t.includes('•') && t.length > 5) {
-              tagline = t;
-              break;
+        const taglineEl = section.querySelector('span.text-secondary')
+          || section.querySelector('[class*="tagline"]');
+        let tagline = taglineEl?.textContent?.trim() || '';
+        if (!tagline) {
+          const parent = nameLink.parentElement;
+          if (parent) {
+            const divs = parent.querySelectorAll('div');
+            for (const d of divs) {
+              const t = d.textContent.trim();
+              if (t && t !== rawName && !t.includes('•') && t.length > 5) {
+                tagline = t;
+                break;
+              }
             }
           }
         }
+
+        const buttons = section.querySelectorAll('button');
+        const upvotes = parseInt((buttons[1]?.textContent?.trim() || '0').replace(/,/g, '')) || 0;
+
+        results.push({ name, tagline, upvotes, phUrl });
+      }
+      return results;
+    });
+    console.log(`Found ${products.length} products.`);
+  }
+
+  // ── Resolve external website links ──
+  if (IS_LEADERBOARD) {
+    // Use CDP to intercept redirect responses at the raw network level.
+    // This bypasses CORS filtering and avoids Playwright buffer corruption.
+    console.log('Resolving website links via CDP network interception...');
+
+    const client = await context.newCDPSession(page);
+    await client.send('Network.enable');
+
+    // Map: original URL → redirect target URL
+    const redirectMap = new Map();
+    client.on('Network.requestWillBeSent', (event) => {
+      if (event.redirectResponse) {
+        // event.redirectResponse.url = the URL that returned the 302
+        // event.request.url = the URL being redirected TO
+        redirectMap.set(event.redirectResponse.url, event.request.url);
+      }
+    });
+
+    const BATCH = 5;
+    for (let start = 0; start < products.length; start += BATCH) {
+      const batch = products.slice(start, start + BATCH);
+      const shortUrls = batch.map((p) => p.shortenedUrl || '');
+
+      // Fire fetch requests in browser (mode:'no-cors' to avoid CORS blocking)
+      await page.evaluate(async (urls) => {
+        await Promise.all(urls.map(async (u) => {
+          if (!u) return;
+          try { await fetch(u, { mode: 'no-cors', redirect: 'follow' }); } catch {}
+        }));
+      }, shortUrls);
+
+      // Small delay to let CDP events settle
+      await new Promise((r) => setTimeout(r, 200));
+
+      // Extract redirect targets from the map
+      for (let j = 0; j < batch.length; j++) {
+        const shortUrl = shortUrls[j];
+        if (!shortUrl) continue;
+        const fullShortUrl = 'https://www.producthunt.com' + shortUrl;
+        const target = redirectMap.get(fullShortUrl);
+        if (target && !target.includes('producthunt.com')) {
+          products[start + j].website = cleanWebsiteUrl(target);
+        }
       }
 
-      // Buttons: first = comments, second = upvotes
-      const buttons = section.querySelectorAll('button');
-      const upvotes = parseInt((buttons[1]?.textContent?.trim() || '0').replace(/,/g, '')) || 0;
-
-      results.push({ name, tagline, upvotes, phUrl });
+      if ((start + BATCH) % 50 < BATCH) {
+        const done = products.filter((p) => p.website).length;
+        console.log(`  … ${Math.min(start + BATCH, products.length)}/${products.length} (${done} with URLs)`);
+      }
     }
 
-    return results;
-  });
+    await client.detach().catch(() => {});
+    const resolved = products.filter((p) => p.website).length;
+    console.log(`Website links resolved: ${resolved}/${products.length}`);
+  } else {
+    // Homepage fallback: visit each product page to resolve website link
+    console.log('Resolving external website links...');
 
-  console.log(`Found ${products.length} products launched today.`);
-
-  // Resolve external website links by visiting each product page
-  console.log('Resolving external website links...');
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    try {
-      await page.goto(p.phUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
-      const website = await page.evaluate(() => {
-        // Look for the "Visit" or external website link on the product page
-        const visitLink = document.querySelector('a[href*="?ref=producthunt"]');
-        if (visitLink) return visitLink.href;
-        // Fallback: any external link in the main content
-        const links = document.querySelectorAll('a[target="_blank"]');
-        for (const link of links) {
-          const href = link.href;
-          if (href && !href.includes('producthunt.com') && href.startsWith('http')) {
-            return href;
-          }
-        }
-        return '';
-      });
-
-      // Clean UTM params
-      let cleanUrl = website;
+    for (let i = 0; i < products.length; i++) {
+      const p = products[i];
       try {
-        const u = new URL(website);
-        u.searchParams.delete('ref');
-        u.searchParams.delete('utm_source');
-        u.searchParams.delete('utm_medium');
-        u.searchParams.delete('utm_campaign');
-        cleanUrl = u.toString();
-        if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
-      } catch {}
+        await page.goto(p.phUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+        const website = await page.evaluate(() => {
+          const visitLink = document.querySelector('a[href*="?ref=producthunt"]');
+          if (visitLink) return visitLink.href;
+          const links = document.querySelectorAll('a[target="_blank"]');
+          for (const link of links) {
+            const href = link.href;
+            if (href && !href.includes('producthunt.com') && href.startsWith('http')) {
+              return href;
+            }
+          }
+          return '';
+        });
 
-      products[i].website = cleanUrl;
-      process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → ${cleanUrl || 'no link'}\n`);
-    } catch {
-      products[i].website = '';
-      process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → failed\n`);
+        let cleanUrl = website;
+        try {
+          const u = new URL(website);
+          u.searchParams.delete('ref');
+          u.searchParams.delete('utm_source');
+          u.searchParams.delete('utm_medium');
+          u.searchParams.delete('utm_campaign');
+          cleanUrl = u.toString();
+          if (cleanUrl.endsWith('?')) cleanUrl = cleanUrl.slice(0, -1);
+        } catch {}
+
+        products[i].website = cleanUrl;
+        process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → ${cleanUrl || 'no link'}\n`);
+      } catch {
+        products[i].website = '';
+        process.stdout.write(`  [${i + 1}/${products.length}] ${p.name} → failed\n`);
+      }
+
+      if (i < products.length - 1) {
+        await page.waitForTimeout(3000);
+      }
     }
   }
 
@@ -160,7 +277,11 @@ async function scrape() {
 
   // Build Excel output
   const now = new Date();
-  const dateStr = now.toISOString().split('T')[0];
+  // Extract date from leaderboard URL (e.g. /leaderboard/daily/2025/2/25/all → 2025-02-25)
+  const urlDateMatch = PH_URL.match(/\/(\d{4})\/(\d{1,2})\/(\d{1,2})/);
+  const dateStr = urlDateMatch
+    ? `${urlDateMatch[1]}-${urlDateMatch[2].padStart(2, '0')}-${urlDateMatch[3].padStart(2, '0')}`
+    : now.toISOString().split('T')[0];
 
   const workbook = new ExcelJS.Workbook();
   const sheet = workbook.addWorksheet('Product Hunt Launches');
