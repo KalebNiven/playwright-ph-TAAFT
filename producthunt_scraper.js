@@ -25,7 +25,40 @@ async function scrape() {
   // Wait for Cloudflare challenge to resolve and products to load
   console.log('Waiting for Cloudflare challenge to resolve...');
   await page.waitForSelector('section a[href*="/products/"]', { timeout: 60000 });
-  console.log('Page loaded, extracting products...');
+  console.log('Page loaded, waiting for products to render...');
+
+  // Give initial products time to fully render (they load slowly)
+  await page.waitForTimeout(3000);
+
+  // Scroll down repeatedly to trigger infinite scroll and load ALL products
+  console.log('Scrolling to load all products...');
+  let previousCount = 0;
+  let stableRounds = 0;
+  const MAX_STABLE_ROUNDS = 5; // stop after 5 rounds with no new products
+  while (stableRounds < MAX_STABLE_ROUNDS) {
+    const currentCount = await page.evaluate(() => {
+      const h = document.querySelector('h1');
+      if (!h) return 0;
+      const c = h.parentElement;
+      if (!c) return 0;
+      return c.querySelectorAll('section a[href*="/products/"]').length;
+    });
+
+    if (currentCount > previousCount) {
+      console.log(`  … ${currentCount} products loaded so far`);
+      previousCount = currentCount;
+      stableRounds = 0;
+    } else {
+      stableRounds++;
+    }
+
+    await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+    await page.waitForTimeout(2000);
+  }
+  console.log(`Finished scrolling. Total products found: ${previousCount}`);
+
+  // Final wait to let the last batch of rows fully render
+  await page.waitForTimeout(2000);
 
   const products = await page.evaluate(() => {
     const results = [];
@@ -51,20 +84,30 @@ async function scrape() {
       const phPath = nameLink.getAttribute('href');
       const phUrl = 'https://www.producthunt.com' + phPath;
 
-      // Tagline
-      const taglineEl = section.querySelector('span.text-secondary');
-      const tagline = taglineEl?.textContent?.trim() || '';
-
-      // Topics
-      const topicLinks = section.querySelectorAll('a[href*="/topics/"]');
-      const topics = Array.from(topicLinks).map((a) => a.textContent.trim());
+      // Tagline — try multiple selectors since the page structure can vary
+      const taglineEl = section.querySelector('span.text-secondary')
+        || section.querySelector('[class*="tagline"]');
+      let tagline = taglineEl?.textContent?.trim() || '';
+      // Fallback: grab the first generic div text after the name link
+      if (!tagline) {
+        const parent = nameLink.parentElement;
+        if (parent) {
+          const divs = parent.querySelectorAll('div');
+          for (const d of divs) {
+            const t = d.textContent.trim();
+            if (t && t !== rawName && !t.includes('•') && t.length > 5) {
+              tagline = t;
+              break;
+            }
+          }
+        }
+      }
 
       // Buttons: first = comments, second = upvotes
       const buttons = section.querySelectorAll('button');
-      const comments = parseInt(buttons[0]?.textContent?.trim()) || 0;
-      const upvotes = parseInt(buttons[1]?.textContent?.trim()) || 0;
+      const upvotes = parseInt((buttons[1]?.textContent?.trim() || '0').replace(/,/g, '')) || 0;
 
-      results.push({ name, tagline, upvotes, comments, topics: topics.join(', '), phUrl });
+      results.push({ name, tagline, upvotes, phUrl });
     }
 
     return results;
@@ -123,14 +166,10 @@ async function scrape() {
   const sheet = workbook.addWorksheet('Product Hunt Launches');
 
   sheet.columns = [
-    { header: '#', key: 'rank', width: 5 },
     { header: 'Name', key: 'name', width: 25 },
     { header: 'Tagline', key: 'tagline', width: 50 },
     { header: 'Upvotes', key: 'upvotes', width: 10 },
-    { header: 'Comments', key: 'comments', width: 10 },
-    { header: 'Topics', key: 'topics', width: 35 },
     { header: 'Website', key: 'website', width: 40 },
-    { header: 'PH Page', key: 'phUrl', width: 40 },
   ];
 
   // Style header row
@@ -144,14 +183,10 @@ async function scrape() {
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     const row = sheet.addRow({
-      rank: i + 1,
       name: p.name,
       tagline: p.tagline,
       upvotes: p.upvotes,
-      comments: p.comments,
-      topics: p.topics,
       website: p.website || '',
-      phUrl: p.phUrl,
     });
 
     // Make links clickable
@@ -159,8 +194,6 @@ async function scrape() {
       row.getCell('website').value = { text: p.website, hyperlink: p.website };
       row.getCell('website').font = { color: { argb: 'FF0563C1' }, underline: true };
     }
-    row.getCell('phUrl').value = { text: p.phUrl, hyperlink: p.phUrl };
-    row.getCell('phUrl').font = { color: { argb: 'FF0563C1' }, underline: true };
   }
 
   // Ensure output directory exists
@@ -175,12 +208,12 @@ async function scrape() {
   // Build Markdown output
   let md = `# Product Hunt — Top Launches ${dateStr}\n\n`;
   md += `> Scraped at ${now.toISOString()} — ${products.length} products\n\n`;
-  md += `| # | Name | Tagline | Upvotes | Comments | Topics | Website | PH Page |\n`;
-  md += `| --- | --- | --- | --- | --- | --- | --- | --- |\n`;
+  md += `| Name | Tagline | Upvotes | Website |\n`;
+  md += `| --- | --- | --- | --- |\n`;
   for (let i = 0; i < products.length; i++) {
     const p = products[i];
     const esc = (s) => (s || '').replace(/\|/g, '\\|');
-    md += `| ${i + 1} | ${esc(p.name)} | ${esc(p.tagline)} | ${p.upvotes} | ${p.comments} | ${esc(p.topics)} | ${p.website || ''} | ${p.phUrl} |\n`;
+    md += `| ${esc(p.name)} | ${esc(p.tagline)} | ${p.upvotes} | ${p.website || ''} |\n`;
   }
 
   const mdFile = path.join(OUTPUT_DIR, `producthunt-${dateStr}.md`);
