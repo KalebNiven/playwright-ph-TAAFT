@@ -179,6 +179,20 @@ async function scrape() {
     // This bypasses CORS filtering and avoids Playwright buffer corruption.
     console.log('Resolving website links via CDP network interception...');
 
+    // Warm up CF session for /r/p/ path by navigating to the first redirect URL
+    const firstWithUrl = products.find((p) => p.shortenedUrl);
+    if (firstWithUrl) {
+      console.log('  Warming up Cloudflare session for redirect path...');
+      const warmupPage = await context.newPage();
+      try {
+        await warmupPage.goto('https://www.producthunt.com' + firstWithUrl.shortenedUrl, {
+          waitUntil: 'domcontentloaded', timeout: 15000,
+        });
+        await warmupPage.waitForTimeout(3000);
+      } catch {}
+      await warmupPage.close();
+    }
+
     const client = await context.newCDPSession(page);
     await client.send('Network.enable');
 
@@ -186,8 +200,6 @@ async function scrape() {
     const redirectMap = new Map();
     client.on('Network.requestWillBeSent', (event) => {
       if (event.redirectResponse) {
-        // event.redirectResponse.url = the URL that returned the 302
-        // event.request.url = the URL being redirected TO
         redirectMap.set(event.redirectResponse.url, event.request.url);
       }
     });
@@ -197,7 +209,6 @@ async function scrape() {
       const batch = products.slice(start, start + BATCH);
       const shortUrls = batch.map((p) => p.shortenedUrl || '');
 
-      // Fire fetch requests in browser (mode:'no-cors' to avoid CORS blocking)
       await page.evaluate(async (urls) => {
         await Promise.all(urls.map(async (u) => {
           if (!u) return;
@@ -205,10 +216,8 @@ async function scrape() {
         }));
       }, shortUrls);
 
-      // Small delay to let CDP events settle
       await new Promise((r) => setTimeout(r, 200));
 
-      // Extract redirect targets from the map
       for (let j = 0; j < batch.length; j++) {
         const shortUrl = shortUrls[j];
         if (!shortUrl) continue;
@@ -219,6 +228,15 @@ async function scrape() {
         }
       }
 
+      // After first 50, check if CDP approach is working; if not, switch to fallback
+      if (start + BATCH === 50) {
+        const done = products.filter((p) => p.website).length;
+        if (done === 0) {
+          console.log('  CDP redirect interception not working — falling back to product page visits...');
+          break;
+        }
+      }
+
       if ((start + BATCH) % 50 < BATCH) {
         const done = products.filter((p) => p.website).length;
         console.log(`  … ${Math.min(start + BATCH, products.length)}/${products.length} (${done} with URLs)`);
@@ -226,6 +244,42 @@ async function scrape() {
     }
 
     await client.detach().catch(() => {});
+
+    // Fallback: visit product pages for any unresolved URLs
+    const unresolved = products.filter((p) => !p.website);
+    if (unresolved.length > products.length * 0.5) {
+      console.log(`Falling back to product page visits for ${unresolved.length} products...`);
+      const navPage = await context.newPage();
+      for (let i = 0; i < products.length; i++) {
+        if (products[i].website) continue;
+        const p = products[i];
+        try {
+          await navPage.goto(p.phUrl, { waitUntil: 'domcontentloaded', timeout: 15000 });
+          // Extract website from Apollo cache on product page
+          const url = await navPage.evaluate(() => {
+            const c = window.__APOLLO_CLIENT__?.cache?.extract?.();
+            if (!c) return '';
+            // Look for ProductLink entries with type 'website'
+            for (const [k, v] of Object.entries(c)) {
+              if (k.startsWith('ProductLink') && v.type === 'website' && v.url) return v.url;
+            }
+            // Fallback: look for external link in the page
+            const link = document.querySelector('a[rel*="nofollow"][href^="http"]:not([href*="producthunt"])');
+            return link?.href || '';
+          });
+          if (url && !url.includes('producthunt.com') && !url.includes('cloudflare.com')) {
+            products[i].website = cleanWebsiteUrl(url);
+          }
+        } catch {}
+        if ((i + 1) % 50 === 0) {
+          const done = products.filter((p) => p.website).length;
+          console.log(`  … ${i + 1}/${products.length} (${done} with URLs)`);
+        }
+        await new Promise((r) => setTimeout(r, 2000 + Math.random() * 1000));
+      }
+      await navPage.close();
+    }
+
     const resolved = products.filter((p) => p.website).length;
     console.log(`Website links resolved: ${resolved}/${products.length}`);
   } else {
