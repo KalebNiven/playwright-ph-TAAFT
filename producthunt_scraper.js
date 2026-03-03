@@ -23,7 +23,7 @@ function cleanWebsiteUrl(rawUrl) {
 
 const PH_URL = process.argv[2] || 'https://www.producthunt.com';
 const IS_LEADERBOARD = PH_URL.includes('/leaderboard/');
-const OUTPUT_DIR = path.join(__dirname, 'output');
+const OUTPUT_DIR = '/Users/nastyabalashova/Desktop/APPSUMO/SOURCING';
 
 async function scrape() {
   const userDataDir = path.join(__dirname, '.chrome-profile');
@@ -341,10 +341,15 @@ async function scrape() {
   const sheet = workbook.addWorksheet('Product Hunt Launches');
 
   sheet.columns = [
-    { header: 'Name', key: 'name', width: 25 },
+    { header: 'Company', key: 'name', width: 25 },
     { header: 'Tagline', key: 'tagline', width: 50 },
     { header: 'Upvotes', key: 'upvotes', width: 10 },
+    { header: 'Traffic', key: 'traffic', width: 15 },
     { header: 'Website', key: 'website', width: 40 },
+    { header: 'Source', key: 'source', width: 15 },
+    { header: 'in HubSpot', key: 'hubspot', width: 15 },
+    { header: 'BDA', key: 'bda', width: 15 },
+    { header: 'comments', key: 'comments', width: 30 },
   ];
 
   // Style header row
@@ -361,7 +366,12 @@ async function scrape() {
       name: p.name,
       tagline: p.tagline,
       upvotes: p.upvotes,
+      traffic: '',
       website: p.website || '',
+      source: 'Product Hunt',
+      hubspot: '',
+      bda: '',
+      comments: '',
     });
 
     // Make links clickable
@@ -380,20 +390,7 @@ async function scrape() {
   await workbook.xlsx.writeFile(xlsxFile);
   console.log(`\nExcel written to ${xlsxFile}`);
 
-  // Build Markdown output
-  let md = `# Product Hunt — Top Launches ${dateStr}\n\n`;
-  md += `> Scraped at ${now.toISOString()} — ${products.length} products\n\n`;
-  md += `| Name | Tagline | Upvotes | Website |\n`;
-  md += `| --- | --- | --- | --- |\n`;
-  for (let i = 0; i < products.length; i++) {
-    const p = products[i];
-    const esc = (s) => (s || '').replace(/\|/g, '\\|');
-    md += `| ${esc(p.name)} | ${esc(p.tagline)} | ${p.upvotes} | ${p.website || ''} |\n`;
-  }
 
-  const mdFile = path.join(OUTPUT_DIR, `producthunt-${dateStr}.md`);
-  fs.writeFileSync(mdFile, md, 'utf-8');
-  console.log(`Markdown written to ${mdFile}`);
 }
 
 scrape().catch((err) => {
